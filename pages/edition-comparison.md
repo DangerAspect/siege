@@ -2,6 +2,8 @@
 layout: page
 title:  Game Editions Comparison and Notes
 permalink: /editions
+description: "A detailed comparison of the various editions available when purchasing Rainbow Six: Siege."
+image: /assets/images/covers/standard.jpg
 ---
 
 <style>
