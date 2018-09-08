@@ -1,0 +1,419 @@
+@charset "utf-8";
+
+// Define defaults for each variable.
+@import "dangeraspect-siege/normalize", "dangeraspect-siege/debug";
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700|Oswald:200,500');
+
+$base-font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
+$header-font-family: "Oswald", $base-font-family;
+$header-cap-height-multiplier: 0.8125;
+
+$grid-unit:        48px !default;
+
+$narrow-width: $grid-unit * 12;
+
+$base-font-size:   $grid-unit * 0.25 !default;
+$base-font-weight: 400 !default;
+$base-line-height: 2.0 !default;
+
+$text-color:       #fff !default;
+$background-color: #0f1117 !default;
+$dark-background: rgba(0, 0, 0, 0.5);
+$accent-color:      #36a9e0 !default;
+$subtle-color:       #cfcfcf !default;
+
+$input-color: #28627e;
+$input-border: 1px solid $input-color;
+$input-focus-border: 1px solid #fff;
+$input-focus-shadow: inset 0 0 12px saturate(lighten($input-color, 20%), 50%), 0 0 8px saturate(lighten($input-color, 20%), 50%);
+
+$content-width:    24 * $grid-unit !default;
+
+@mixin fontSize($size){
+    font-size: $size * 0.5 / $header-cap-height-multiplier;
+    line-height: $size;
+}
+@mixin logo {
+    display: inline-block;
+    font-family: $header-font-family;
+    text-transform: none;
+    font-weight: 200;
+    .game{
+        font-weight: 500;
+        text-transform: uppercase;
+    }
+}
+
+*, *:before, *:after{
+    box-sizing: border-box;
+}
+html{
+    background-color: $background-color;
+}
+body{
+    color: $text-color;
+    font-family: $base-font-family;
+
+    font-size: 16px;
+    line-height: $grid-unit * 0.5;
+
+    padding: $grid-unit;
+
+    background-image: linear-gradient(to bottom, 
+        rgba($background-color, 0), 
+        rgba($background-color, 0.75) #{$grid-unit * 8},
+        rgba($background-color, 1) #{$grid-unit * 18}
+    );
+}
+#background{
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    
+    position: fixed;
+    z-index: -1;
+
+    background-image: url('/assets/images/bg_hereford.jpg');
+    background-size: cover;
+    background-position: bottom center;
+    background-attachment: fixed;
+
+    animation: 30s ease-out background-entry both paused;
+}
+header, main{
+    animation: 1.5s ease-in-out content-entry both;
+}
+main{
+    animation-delay: 0.5s;
+}
+@keyframes background-entry{
+    from{
+        opacity: 0;
+        transform: scale(1.25);
+        filter: blur(4px);
+    }
+    10%{
+        opacity: 0.75;
+        filter: blur(0);
+    }
+    25%{
+        opacity: 1;
+    }
+    to{
+        transform: scale(1);
+    }
+}
+@keyframes content-entry{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+body::after{
+    content: '';
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    
+    position: fixed;
+
+    pointer-events: none;
+
+    // Uncomment to enable visual grid
+    //@include debug-grid();
+}
+
+@mixin heading($size){
+    font-family: $header-font-family;
+    font-weight: 500;
+    text-transform: uppercase;
+
+    margin: $size auto;
+
+    @include fontSize($size);
+}
+h1{
+    @include heading($grid-unit * 1.5);
+    margin-bottom: $grid-unit;
+    line-height: $grid-unit;
+}
+h2{
+    @include heading($grid-unit * 1);
+}
+h3{
+    @include heading($grid-unit * 0.75);
+}
+h4{
+    @include heading($grid-unit * 0.5);
+}
+.logo{
+    @include logo();
+}
+.lead{
+    @include fontSize($grid-unit * 0.75);
+    max-width: $narrow-width;
+    margin-left: 0;
+    .logo{
+        @include fontSize($grid-unit);
+    }
+}
+
+p{
+    margin: $grid-unit*0.5 auto;
+}
+
+a{
+    color: $accent-color;
+}
+
+small{
+    @include fontSize($grid-unit * 0.4);
+}
+
+.table-emphasis{
+    text-align: center;
+    em{
+        @include fontSize($grid-unit);
+        font-family: $header-font-family;
+        font-weight: 200;
+        text-transform: uppercase;
+        font-style: normal;
+    }
+}
+
+table{
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: $grid-unit * 0.125;
+    table-layout: fixed;
+    margin: #{$grid-unit * (1 - 0.125)} auto;
+
+    tr{
+        td, th{
+            padding: #{$grid-unit * 0.2} #{$grid-unit * 0.25} #{$grid-unit * 0.175};
+        }
+        th, td{
+            background-color: $dark-background;
+            vertical-align: top;
+        }
+    }
+}
+
+.overflow-container{
+    overflow-x: auto;
+}
+
+// Forms
+@mixin form-control{
+    min-height: $grid-unit;
+    width: 100%;
+    padding: #{0.25 * $grid-unit - 1px} #{0.25 * $grid-unit - 1px};
+
+    background-color: $dark-background;
+    color: $text-color;
+    border: $input-border;
+
+    text-decoration: none;
+
+    transition: 0.1s linear padding-left;
+    &:hover, &:focus{
+        border: $input-focus-border;
+        box-shadow: $input-focus-shadow;
+    }
+}
+select, input[type=text]{
+    @include form-control();
+}
+select{
+    height: $grid-unit;
+}
+optgroup{
+    background-color: $background-color;
+    font-weight: bold;
+    color: $text-color;
+}
+option{
+    background-color: $background-color;
+    color: $text-color;
+}
+input[type=checkbox]{
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    & + label{
+        @include form-control();
+        display: block;
+        user-select: none;
+        position: relative;
+    }
+    &:checked + label{
+        padding-left: 0.5 * $grid-unit;
+        border: $input-focus-border;
+        box-shadow: $input-focus-shadow;
+        /*&::before{
+            content: '';
+            display: block;
+            background-color: currentColor;
+            border-radius: 50%;
+            height: 0.25 * $grid-unit;
+            width: 0.25 * $grid-unit;
+            position: absolute;
+            top: 0.25 * $grid-unit - 1px;
+            left: 0.25 * $grid-unit - 1px;
+        }*/
+    }
+}
+.button{
+    @include form-control();
+    display: block;
+    text-transform: uppercase;
+}
+.narrow{
+    //Limit max characters per line
+    max-width: $narrow-width;
+    margin: 0 0 auto 0;
+}
+
+// Lists
+.home-call-to-action{
+    margin-bottom: $grid-unit * 4;
+}
+.list{
+    padding: 0;
+    margin: 0 auto;
+    list-style-type: none;
+    list-style-position: inside;
+    .list-item{
+        .list-link{
+            display: block;
+            height: $grid-unit * 1.5;
+            overflow: hidden;
+            @include form-control();
+            display: flex;
+            font-family: $header-font-family;
+            .list-title{
+                flex: auto;
+                @include fontSize($grid-unit * 0.75);
+                padding: #{$grid-unit * 0.125} 0;
+            }
+            .list-meta{
+                flex: inherit;
+                opacity: 0.5;
+                text-align: right;
+            }
+        }
+        &.list-item-hidden{
+            display: none;
+        }
+    }
+}
+
+.list-filter{
+    margin-bottom: $grid-unit;
+    display: flex;
+    .list-filter-text{
+        flex: auto;
+        min-width: $grid-unit * 6;
+    }
+    .list-filter-category{
+        flex: none;
+        width: $grid-unit * 6;
+    }
+}
+
+// Heading
+.site-header{
+    font-family: $header-font-family;
+    font-weight: 200;
+    @include fontSize($grid-unit);
+
+    max-width: $content-width;
+    margin: 0 auto;
+
+    margin-bottom: $grid-unit*2;
+
+    display: flex;
+    a{
+        display: block;
+        color: $text-color;
+        text-decoration: none;
+    }
+    .site-title{
+        flex: auto;
+        font-size: inherit;
+        font-weight: inherit;
+        margin: 0;
+        display: block;
+
+        @include logo();
+    }
+    .site-nav{
+        flex: auto;
+        justify-content: flex-end;
+        
+        display: flex;
+        .page-link{
+            flex: initial;
+            padding-right: $grid-unit * 0.5;
+
+            opacity: 0.5;
+
+            &:hover, &:focus{
+                opacity: 0.75;
+            }
+            &.active{
+                opacity: 1;
+            }
+            &:last-child{
+                padding-right: 0;
+            }
+        }
+    }
+}
+
+.page-content{
+    max-width: $content-width;
+    min-height: calc(100vh - #{$grid-unit * 8.5});
+    margin: 0 auto;
+    
+    .post-meta{
+        margin-top: $grid-unit * -1;
+        margin-bottom: $grid-unit;
+
+        &>span{
+            background-color: $dark-background;
+            padding: 0 0.5em;
+        }
+    }
+}
+
+.site-footer{
+    max-width: $content-width;
+    margin: ($grid-unit*2) auto (-$grid-unit*0.5);
+
+    opacity: 0.5;
+
+    display: flex;
+
+    .site-identity{
+        flex: auto;
+        .site-name{
+            @include fontSize($grid-unit*1);
+            @include logo();
+        }
+    }
+    .site-notices{
+        flex: auto;
+        padding-top: $grid-unit;
+        @include fontSize($grid-unit*0.375);
+        flex: auto;
+        text-align: right;
+    }
+    p{
+        margin: 0;
+    }
+}

@@ -1,0 +1,184 @@
+---
+layout: page
+title: Comparison of Weapon Sights
+permalink: /sights
+---
+
+<p>
+    This is a comparison between the six types of 1x scopes available as weapon attachments. This comparison does not include the 2.5x-magnification ACOG sight, or default weapon sights. 
+</p>
+
+<!-- Special styling for scope SVG -->
+<style>
+    svg{
+    }
+    #comparison-preview svg{
+        background-size: contain;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-color: #000;
+    }
+    .settings-header{
+        margin: 0 auto;
+        line-height: 48px;
+    }
+
+    #comparison-toggle-nato-holographic:checked + label{
+        background-color: rgba(0, 0, 255, 0.25);
+    }
+    #comparison-toggle-nato-reddot:checked + label{
+        background-color: rgba(255, 0, 0, 0.25);
+    }
+    #comparison-toggle-nato-reflex:checked + label{
+        background-color: rgba(0, 255, 0, 0.25);
+    }
+    #comparison-toggle-ru-holographic:checked + label{
+        background-color: rgba(0, 255, 255, 0.25);
+    }
+    #comparison-toggle-ru-reddot:checked + label{
+        background-color: rgba(255, 255, 0, 0.25);
+    }
+    #comparison-toggle-ru-reflex:checked + label{
+        background-color: rgba(255, 0, 255, 0.25);
+    }
+
+    @media screen and (min-width: 1200px){
+        .comparison-options{
+            display: flex;
+        }
+        .comparison-category{
+            flex: auto;
+            width: auto;
+        }
+        #comparison-options-outlines{
+            padding-left: 24px;
+            width: 348px;
+            flex: initial;
+        }
+    }
+</style>
+
+<!-- Pre-fetch-->
+<link rel="prefetch" href="/assets/images/sight-comparison/nato-holographic.jpg">
+<link rel="prefetch" href="/assets/images/sight-comparison/nato-reddot.jpg">
+<link rel="prefetch" href="/assets/images/sight-comparison/nato-reflex.jpg">
+<link rel="prefetch" href="/assets/images/sight-comparison/ru-holographic.jpg">
+<link rel="prefetch" href="/assets/images/sight-comparison/ru-reddot.jpg">
+<link rel="prefetch" href="/assets/images/sight-comparison/ru-reflex.jpg">
+
+<!-- Embed SVG document after the doctype -->
+<div id="comparison-preview">
+    {% capture svg %}
+    {% include sight-comparison/sights.svg %}
+    {% endcapture %}
+    {% assign svgsplit = svg | split: 'svg11.dtd">' %}
+    {% assign svgpart = svgsplit[1] %}
+    {{ svgpart }}
+</div>  
+
+<div class="comparison-options">
+    <div id="comparison-options-bg" class="comparison-category">
+        <p>
+            Use this tool to compare the body and viewport sizes of 1x weapon sight attachments. 
+            Reference screenshots and the backdrops are taken in the Test Server for Operation Grim Sky. 
+        </p>
+        <h4>NATO vs. Russian sights</h4>
+        <p>
+            The NATO sights can be equipped on most guns, while Russian operators (i.e. Kapkan, Tachanka, Glaz, Fuze, and Finka) feature a unique set of Russian sights. 
+        </p>
+
+        <h3 class="settings-header">Backdrop</h3>
+        <select id="comparison-bg" onchange="toggleBackdrop(this.value)">
+            <option value="none" selected>Blank background</option>
+            <optgroup label="NATO">
+                <option value="nato-holographic">NATO: Holographic</option>
+                <option value="nato-reddot">NATO: Red Dot</option>
+                <option value="nato-reflex">NATO: Reflex</option>
+            </optgroup>
+            <optgroup label="Russian (Spetsnaz)">
+                <option value="ru-holographic">Russian: Holographic</option>
+                <option value="ru-reddot">Russian: Red Dot</option>
+                <option value="ru-reflex">Russian: Reflex</option>
+            </optgroup>
+        </select>
+    </div>
+
+    <div id="comparison-options-outlines" class="comparison-category">
+        <h4 class="settings-header">NATO</h4>
+        <input type="checkbox" id="comparison-toggle-nato-holographic" value="nato-holographic" onchange="toggleLayer(this.value, this.checked)">
+        <label for="comparison-toggle-nato-holographic">
+            <div>Holographic</div>
+        </label>
+
+        <input type="checkbox" id="comparison-toggle-nato-reddot" value="nato-reddot" onchange="toggleLayer(this.value, this.checked)">
+        <label for="comparison-toggle-nato-reddot">
+            <div>Red Dot</div>
+        </label>
+
+        <input type="checkbox" id="comparison-toggle-nato-reflex" value="nato-reflex" onchange="toggleLayer(this.value, this.checked)">
+        <label for="comparison-toggle-nato-reflex">
+            <div>Reflex</div>
+        </label>
+
+        <h4 class="settings-header">Russian (Spetsnaz)</h4>
+        <input type="checkbox" id="comparison-toggle-ru-holographic" value="ru-holographic" onchange="toggleLayer(this.value, this.checked)">
+        <label for="comparison-toggle-ru-holographic">
+            <div>Holographic</div>
+        </label>
+
+        <input type="checkbox" id="comparison-toggle-ru-reddot" value="ru-reddot" onchange="toggleLayer(this.value, this.checked)">
+        <label for="comparison-toggle-ru-reddot">
+            <div>Red Dot</div>
+        </label>
+
+        <input type="checkbox" id="comparison-toggle-ru-reflex" value="ru-reflex" onchange="toggleLayer(this.value, this.checked)">
+        <label for="comparison-toggle-ru-reflex">
+            <div>Reflex</div>
+        </label>
+    </div>
+</div>
+
+<!-- Scripts -->
+<script>
+    window.addEventListener("load", resetLayers);
+    var sights = ["nato-holographic", "nato-reddot", "nato-reflex", "ru-holographic", "ru-reddot", "ru-reflex"];
+    var highestZIndex = 0;
+
+    function getBackdropString(name){
+        return `url(/assets/images/sight-comparison/${name}.jpg)`;
+    }
+    function resetLayers(){
+        for (var index = 0; index < sights.length; index++) {
+            document.getElementById(sights[index]).style.visibility = "hidden";
+        }
+        //Initial
+        toggleBackdrop(sights[0]);
+        toggleLayer(sights[0], true);
+    }
+    function toggleLayer(target, isVisible){
+        var sightElement = document.getElementById(target);
+        var parentElement = document.getElementById("outline");
+
+        sightElement.style.visibility = isVisible ? "visible" : "hidden";
+        if(isVisible){
+            parentElement.removeChild(sightElement);
+            parentElement.appendChild(sightElement);
+        }
+        document.getElementById(`comparison-toggle-${target}`).checked = isVisible;
+    }
+    function toggleBackdrop(target){
+        var isImageBackdrop = (target != "none");
+        var backdrop = document.getElementById("comparison-preview");
+        var backdrop = document.getElementsByTagName("svg")[0];
+
+        if(isImageBackdrop){
+            document.getElementById("bg-rect").style.visibility = "hidden";
+            backdrop.style.backgroundImage = getBackdropString(target);
+        }
+        else{
+            document.getElementById("bg-rect").style.visibility = "visible";
+            backdrop.style.backgroundImage = "";
+        }
+        document.getElementById("comparison-bg").value = target;
+    }
+</script>
