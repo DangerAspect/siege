@@ -270,7 +270,6 @@ input[type=checkbox]{
 .button{
     @include form-control();
     display: block;
-    text-transform: uppercase;
 }
 .narrow{
     //Limit max characters per line
@@ -281,6 +280,7 @@ input[type=checkbox]{
 // Lists
 .home-call-to-action{
     margin-bottom: $grid-unit * 4;
+    text-transform: uppercase;
 }
 .list{
     padding: 0;

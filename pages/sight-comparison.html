@@ -10,6 +10,10 @@ image: /assets/images/sight-comparison/thumb.jpg
     This is a comparison between the six types of 1x scopes available as weapon attachments. This comparison does not include the 2.5x-magnification ACOG sight, or default weapon sights. 
 </p>
 
+<p>
+    <a href="#comparison-options-bg" class="button narrow">Jump to options</a>
+</p>
+
 <!-- Special styling for scope SVG -->
 <style>
     svg{
@@ -103,6 +107,10 @@ image: /assets/images/sight-comparison/thumb.jpg
                 <option value="ru-reflex">Russian: Reflex</option>
             </optgroup>
         </select>
+
+        <p>
+            <a href="#" class="button" id="comparison-fullscreen">View fullscreen</a>
+        </p>
     </div>
 
     <div id="comparison-options-outlines" class="comparison-category">
@@ -183,4 +191,23 @@ image: /assets/images/sight-comparison/thumb.jpg
         }
         document.getElementById("comparison-bg").value = target;
     }
+    function enterFullscreen(evt){
+        console.log(evt);
+        evt.preventDefault();
+
+        var preview = document.getElementById("comparison-preview");
+        if (preview.requestFullscreen) {
+            preview.requestFullscreen();
+        } else if (preview.webkitRequestFullscreen) {
+            preview.webkitRequestFullscreen();
+        } else if (preview.mozRequestFullScreen) {
+            preview.mozRequestFullScreen();
+        } else if (preview.msRequestFullscreen) {
+            preview.msRequestFullscreen();
+        } else{
+            console.error("Fullscreen API not supported.");
+        }
+    }
+
+    document.getElementById("comparison-fullscreen").addEventListener("click", enterFullscreen);
 </script>
