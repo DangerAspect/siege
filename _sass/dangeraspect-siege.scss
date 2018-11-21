@@ -225,7 +225,7 @@ table{
         box-shadow: $input-focus-shadow;
     }
 }
-select, input[type=text]{
+select, input[type=text], input[type=date], input[type=time]{
     @include form-control();
 }
 select{
@@ -267,9 +267,18 @@ input[type=checkbox]{
         }*/
     }
 }
-.button{
+.button, input[type=button], input[type=submit], button{
     @include form-control();
     display: block;
+}
+label{
+    line-height: $grid-unit;
+    font-weight: bold;
+}
+hr{
+    border: 1px solid $text-color;
+    margin: #{$grid-unit} 0;
+    opacity: 0.5;
 }
 .narrow{
     //Limit max characters per line
@@ -323,6 +332,15 @@ input[type=checkbox]{
         flex: none;
         width: $grid-unit * 6;
     }
+}
+
+// Fonts 
+.font-base{
+    font-family: $base-font-family;
+}
+.font-header{
+    font-family: $header-font-family;
+    font-weight: 200;
 }
 
 // Heading

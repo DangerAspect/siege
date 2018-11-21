@@ -1,0 +1,281 @@
+---
+layout: page
+title: Event Time Converter 
+permalink: /event-time
+description: A time zone converter for event time and schedules. 
+---
+
+<script src="/assets/scripts/moment.min.js"></script>
+<script src="/assets/scripts/moment-timezone-with-data-2012-2022.min.js"></script>
+
+<div id="converter">
+</div>
+
+<hr>
+
+<h2>About this converter</h2>
+
+<p>This tool converts a provided event time into local time for the user. </p>
+
+<p>
+    Event information is provided in the URL hash (the part after the #) in the form 
+    of pipe-separated values. You can use <a href="editor">the editor</a> to create your own links. 
+</p>
+
+<p>
+    If provided with the correct event locale data, this tool should automatically take into 
+    account Daylight Saving Times. This tool uses <a href="https://momentjs.com/timezone/">Moment Timezone</a> 
+    containing data for years between 2012 and 2022. 
+</p>
+
+<!-- Scripts and styling go below this line! -->
+<script>
+    var dateFormat = "dddd, D MMMM YYYY";
+    var shortDateFormat = "D MMM YYYY";
+    var timeFormat = "h:mm a";
+    var tzFormat = "[UTC] Z";
+    var fullDateFormat = `${dateFormat}[, at] ${timeFormat} [(]${tzFormat}[)]`;
+    var calendarDayFormat = {
+        sameDay: ' ',
+        nextDay: ` [the next day]`,
+        nextWeek: ` on ${shortDateFormat}`,
+        lastDay: `  [the day before]`,
+        lastWeek: ` on ${shortDateFormat}`,
+        sameElse: ` on ${shortDateFormat}`
+    };
+
+    function createElement(tag, className, contents){
+        var e = document.createElement(tag);
+        if(className != null){
+            e.className = className;
+        }
+        if(contents != null){
+            e.innerText = contents
+        }
+        return e;
+    }
+
+    function showError(message){
+        console.log(message);
+        let errorMessage = createElement("p", "error-message font-header", message);
+        document.getElementById("converter").appendChild(errorMessage);
+    }
+
+    function update(data, userTimezone){
+        var current = getDetectedTimezoneDetails(userTimezone);
+        var event = getMainEventDetails(data.eventName, data.venueTime, data.timeZone, userTimezone);
+        var schedule = getEventSchedule(data.schedule, data.venueTime, data.timeZone, userTimezone);
+
+        document.getElementById("converter").appendChild(current);
+        document.getElementById("converter").appendChild(event);
+        if(schedule != null){
+            document.getElementById("converter").appendChild(schedule);
+        }
+    }
+
+    function getDetectedTimezoneDetails(userTimezone){
+        var currentMoment = moment().tz(userTimezone);
+        let intro = createElement("p", "intro", `Please note: this is a public time zone converter tool. Event details are provided by the creator of the link.`);
+        let timezone = createElement("p", "current-timezone", `Using your detected time zone ${userTimezone} (${currentMoment.format(tzFormat)})`);
+        let container = createElement("div");;
+        container.appendChild(intro);
+        container.appendChild(timezone);
+        return container;
+    }
+
+    function getMainEventDetails(eventName, venueTime, timeZone, userTimezone){
+        var eventMoment = moment.tz(venueTime, timeZone);
+        var eventMomentLocal = moment(eventMoment).tz(userTimezone);
+
+        var container = createElement("div", "main-event");
+
+        container.appendChild(createElement("h2", "event-name", `📅 ${eventName}`));
+        container.appendChild(createElement("div", "event-time font-header", eventMomentLocal.format(timeFormat)));
+
+        var eventDate = createElement("div", "event-date", eventMomentLocal.format(dateFormat));
+        eventDate.appendChild(createElement("span", "event-timezone", ` (${eventMomentLocal.format(tzFormat)})`));
+        container.appendChild(eventDate);
+
+        container.appendChild(createElement("div", "event-localisation", `${eventMomentLocal.fromNow()}.`));
+        container.appendChild(createElement("div", "event-venue", `Venue time: ${eventMoment.format(fullDateFormat)}`));
+
+        return container;
+    }
+
+    function getEventSchedule(schedule, venueTime, timeZone, userTimezone){
+        if(schedule == null || schedule.length === 0){
+            return null;
+        }
+        var eventMoment = moment.tz(venueTime, timeZone);
+        var eventMomentLocal = moment(eventMoment).tz(userTimezone);
+
+        var scheduleElement = createElement("div", "schedule");
+        var header = createElement("h3", null, "Schedule");
+        scheduleElement.appendChild(header);
+        var container = createElement("div", "schedule-table");
+        scheduleElement.appendChild(container);
+
+        schedule.forEach(item => {
+            var scheduleMoment = moment.tz(item.venueTime, timeZone);
+            var scheduleMomentLocal = moment(scheduleMoment).tz(userTimezone);
+
+            var scheduleItem = createElement("div", "schedule-item");
+
+            var scheduleTime = createElement("div", "schedule-item-time");
+
+            var scheduleTimeLocal = createElement("div", "schedule-item-time-local font-header", scheduleMomentLocal.format(timeFormat));
+            scheduleTimeLocal.appendChild(createElement("span", "schedule-item-time-local-detail font-base", 
+                `${scheduleMomentLocal.calendar(eventMomentLocal, calendarDayFormat)}`));
+            scheduleTime.appendChild(scheduleTimeLocal);
+            
+            var scheduleTimeVenue = createElement("div", "schedule-item-time-venue", `Venue time: ${scheduleMoment.format(timeFormat)}`);
+            scheduleTimeVenue.appendChild(createElement("span", "schedule-item-time-venue-detail font-base", 
+                `${scheduleMoment.calendar(eventMoment, calendarDayFormat)}`));
+            scheduleTime.appendChild(scheduleTimeVenue);
+            
+            scheduleItem.appendChild(scheduleTime);
+            scheduleItem.appendChild(createElement("div", "schedule-item-name", item.name));
+
+            container.appendChild(scheduleItem);
+        });
+
+        return scheduleElement;
+    }
+
+    /*let data = {
+        eventName: 'Rainbow Six Pro League Season 8 Finals',
+        venueTime: '2018-11-17T10:45:00',
+        timeZone: 'America/Sao_Paulo',
+        schedule: [
+            {name: 'Match 1', venueTime: '2018-11-17T11:00:00'},
+            {name: 'Match 2', venueTime: '2018-11-17T13:30:00'},
+            {name: 'Match 3', venueTime: '2018-11-17T15:00:00'},
+            {name: 'Match 4', venueTime: '2018-11-17T16:30:00'}
+        ]
+    };*/
+
+    var data = null;
+
+    // JSON + EncodeURIComponent 
+    /*
+    if(window.location.hash.length > 2){
+        try {
+            data = JSON.parse(decodeURIComponent(window.location.hash.substring(1)));
+        } catch (error) {
+            showError("Unable to load: the event data in the URL is invalid.");
+        }
+    }
+    else{
+            showError("There is no information provided to show.");
+    }*/
+    
+    //Pipe-separated values
+    if(window.location.hash.length > 2){
+        try {
+        let input = decodeURIComponent(window.location.hash.substring(1)).split("|");
+            data = {
+                eventName: input[0],
+                venueTime: input[1],
+                timeZone: input[2],
+                schedule: null
+            };
+            if(input.length > 3 && (input.length - 3) % 2 === 0){
+                data['schedule'] = [];
+                for (let i = 3; i < input.length; i+=2) {
+                    data['schedule'].push({
+                        name: input[i],
+                        venueTime: input[i+1]
+                    });
+                }
+            }
+
+            console.log(data);
+        } catch (error) {
+            showError("Unable to load: the event data in the URL is invalid.");
+            console.log(error);
+        }
+    }
+    else{
+            showError("There is no information to show.");
+    }
+
+    // Guess user time zone
+    if(data != null){
+        var userTimezone = moment.tz.guess();
+        update(data, userTimezone);
+    }
+</script>
+<style>
+    h1{
+        margin-bottom: 1rem;
+    }
+    h2{
+        margin-bottom: 1rem;
+    }
+    .intro, .current-timezone{
+        margin: 0 auto;
+    }
+    .current-timezone{
+        font-weight: bold;
+    }
+    .error-message{
+        font-size: 2rem;
+        line-height: 1.0;
+        margin: 8rem auto;
+        opacity: 0.5;
+        text-align: center;
+    }
+
+    /*Event details*/
+    .event-time{
+        font-size: 3rem;
+        line-height: 1.0;
+        margin-bottom: 0.5rem;
+    }
+    .event-timezone{
+        opacity: 0.5;
+    }
+    .event-date{
+        font-size: 1.5rem;
+        line-height: 1.0;
+        margin-bottom: 1rem;
+    }
+    .event-localisation, .event-venue{
+        opacity: 0.75;
+    }
+
+    /*Schedule*/
+    .schedule-table{
+        display: table;
+        width: 100%;
+        border-collapse: separate;
+    }
+    .schedule-item{
+        display: table-row;
+        height: 5rem;
+    }
+    .schedule-item:hover{
+        background-color: rgba(128, 128, 128, 0.5);
+    }
+    .schedule-item-time{
+        display: table-cell;
+        padding-right: 2rem;
+        padding-top: 0.5rem;
+        white-space: pre; 
+    }
+    .schedule-item-time-local{
+        font-size: 2rem;
+    }
+    .schedule-item-time-venue{
+        opacity: 0.5;
+    }
+    .schedule-item-time-local span, .schedule-item-time-venue span{
+        font-size: 1rem;
+    }
+    .schedule-item-name{
+        display: table-cell;
+        font-size: 1.5rem;
+        width: 100%;
+        padding-bottom: 0.5rem;
+    }
+</style>
