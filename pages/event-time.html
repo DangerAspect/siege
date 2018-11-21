@@ -15,13 +15,13 @@ description: A time zone converter for event time and schedules.
 
 <h2>About this converter</h2>
 
-<p>This tool converts a provided event time into local time for the user. </p>
-
+<p>
+    This tool converts a provided event time into local time for the user.
+</p>
 <p>
     Event information is provided in the URL hash (the part after the #) in the form 
     of pipe-separated values. You can use <a href="editor">the editor</a> to create your own links. 
 </p>
-
 <p>
     If provided with the correct event locale data, this tool should automatically take into 
     account Daylight Saving Times. This tool uses <a href="https://momentjs.com/timezone/">Moment Timezone</a> 
@@ -30,6 +30,8 @@ description: A time zone converter for event time and schedules.
 
 <!-- Scripts and styling go below this line! -->
 <script>
+    "use strict";
+
     var dateFormat = "dddd, D MMMM YYYY";
     var shortDateFormat = "D MMM YYYY";
     var timeFormat = "h:mm a";
@@ -44,6 +46,27 @@ description: A time zone converter for event time and schedules.
         sameElse: ` on ${shortDateFormat}`
     };
 
+    // Pre-set events
+    var presetEvents = {
+        "PL_Season8_Day1": {
+            eventName: 'Rainbow Six Pro League Season 8 Finals',
+            venueTime: '2018-11-17T10:45:00',
+            timeZone: 'America/Sao_Paulo',
+            schedule: [
+                {name: 'Match 1', venueTime: '2018-11-17T11:00:00'},
+                {name: 'Match 2', venueTime: '2018-11-17T13:30:00'},
+                {name: 'Match 3', venueTime: '2018-11-17T15:00:00'},
+                {name: 'Match 4', venueTime: '2018-11-17T16:30:00'}
+            ]
+        }, 
+        "Y3S4_TS": {
+            eventName: 'Test Server Deployment of Operation Wind Bastion',
+            venueTime: '2018-11-20T13:30',
+            timeZone: 'Canada/Eastern',
+            schedule: null
+        }
+    };
+
     function createElement(tag, className, contents){
         var e = document.createElement(tag);
         if(className != null){
@@ -56,12 +79,15 @@ description: A time zone converter for event time and schedules.
     }
 
     function showError(message){
+        document.getElementById("converter").innerHTML = "";
         console.log(message);
         let errorMessage = createElement("p", "error-message font-header", message);
         document.getElementById("converter").appendChild(errorMessage);
     }
 
     function update(data, userTimezone){
+        document.getElementById("converter").innerHTML = "";
+
         var current = getDetectedTimezoneDetails(userTimezone);
         var event = getMainEventDetails(data.eventName, data.venueTime, data.timeZone, userTimezone);
         var schedule = getEventSchedule(data.schedule, data.venueTime, data.timeZone, userTimezone);
@@ -142,68 +168,73 @@ description: A time zone converter for event time and schedules.
         return scheduleElement;
     }
 
-    /*let data = {
-        eventName: 'Rainbow Six Pro League Season 8 Finals',
-        venueTime: '2018-11-17T10:45:00',
-        timeZone: 'America/Sao_Paulo',
-        schedule: [
-            {name: 'Match 1', venueTime: '2018-11-17T11:00:00'},
-            {name: 'Match 2', venueTime: '2018-11-17T13:30:00'},
-            {name: 'Match 3', venueTime: '2018-11-17T15:00:00'},
-            {name: 'Match 4', venueTime: '2018-11-17T16:30:00'}
-        ]
-    };*/
+    function readHash(){
+        var data = null;
 
-    var data = null;
-
-    // JSON + EncodeURIComponent 
-    /*
-    if(window.location.hash.length > 2){
-        try {
-            data = JSON.parse(decodeURIComponent(window.location.hash.substring(1)));
-        } catch (error) {
-            showError("Unable to load: the event data in the URL is invalid.");
+        let hash = null;
+        if(window.location.hash.length > 2){
+            hash = window.location.hash.substring(1);
         }
-    }
-    else{
-            showError("There is no information provided to show.");
-    }*/
-    
-    //Pipe-separated values
-    if(window.location.hash.length > 2){
-        try {
-        let input = decodeURIComponent(window.location.hash.substring(1)).split("|");
-            data = {
-                eventName: input[0],
-                venueTime: input[1],
-                timeZone: input[2],
-                schedule: null
-            };
-            if(input.length > 3 && (input.length - 3) % 2 === 0){
-                data['schedule'] = [];
-                for (let i = 3; i < input.length; i+=2) {
-                    data['schedule'].push({
-                        name: input[i],
-                        venueTime: input[i+1]
-                    });
-                }
+
+        console.log(hash);
+
+        //Pre-set events
+        if(hash != null && hash in presetEvents){
+            data = presetEvents[hash];
+        }
+
+        // JSON + EncodeURIComponent 
+        /*else if(window.location.hash.length > 2){
+            try {
+                data = JSON.parse(decodeURIComponent(window.location.hash.substring(1)));
+            } catch (error) {
+                showError("Unable to load: the event data in the URL is invalid.");
             }
+        }*/
+        
+        //Pipe-separated values
+        else if(hash != null && decodeURIComponent(hash).split("|").length >= 3){
+            try {
+                let input = decodeURIComponent(hash).split("|");
+                data = {
+                    eventName: input[0],
+                    venueTime: input[1],
+                    timeZone: input[2],
+                    schedule: null
+                };
+                //Validate dates are valid
+                if(input.length > 3 && (input.length - 3) % 2 === 0){
+                    data['schedule'] = [];
+                    for (let i = 3; i < input.length; i+=2) {
+                        data['schedule'].push({
+                            name: input[i],
+                            venueTime: input[i+1]
+                        });
+                    }
+                }
 
-            console.log(data);
-        } catch (error) {
-            showError("Unable to load: the event data in the URL is invalid.");
-            console.log(error);
+                console.log(data);
+            } catch (error) {
+                showError("Unable to load: the event data in the URL is invalid.");
+                console.log(error);
+            }
+        }
+        else if(hash != null){
+                showError("Unable to load: the event data in the URL is invalid.");
+        }
+        else{
+                showError("There is no information to show.");
+        }
+
+        // Guess user time zone
+        if(data != null){
+            var userTimezone = moment.tz.guess();
+            update(data, userTimezone);
         }
     }
-    else{
-            showError("There is no information to show.");
-    }
 
-    // Guess user time zone
-    if(data != null){
-        var userTimezone = moment.tz.guess();
-        update(data, userTimezone);
-    }
+    readHash();
+    window.addEventListener("hashchange", readHash, false);
 </script>
 <style>
     h1{
