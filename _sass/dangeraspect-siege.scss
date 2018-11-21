@@ -248,6 +248,7 @@ input[type=checkbox]{
         display: block;
         user-select: none;
         position: relative;
+        line-height: $grid-unit * 0.5;
     }
     &:checked + label{
         padding-left: 0.5 * $grid-unit;
