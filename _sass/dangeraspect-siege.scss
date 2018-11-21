@@ -17,12 +17,12 @@ $base-font-weight: 400 !default;
 $base-line-height: 2.0 !default;
 
 $text-color:       #fff !default;
-$background-color: #0f1117 !default;
+$accent-color:      #aa854f !default;
 $dark-background: rgba(0, 0, 0, 0.5);
-$accent-color:      #36a9e0 !default;
 $subtle-color:       #cfcfcf !default;
 
-$input-color: #28627e;
+$background-color: scale-color($accent-color, $lightness: -95%) !default;
+$input-color: scale-color($accent-color, $lightness: -25%);
 $input-border: 1px solid $input-color;
 $input-focus-border: 1px solid #fff;
 $input-focus-shadow: inset 0 0 12px saturate(lighten($input-color, 20%), 50%), 0 0 8px saturate(lighten($input-color, 20%), 50%);
@@ -61,8 +61,9 @@ body{
 
     background-image: linear-gradient(to bottom, 
         rgba($background-color, 0), 
-        rgba($background-color, 0.75) #{$grid-unit * 8},
-        rgba($background-color, 1) #{$grid-unit * 18}
+        rgba($background-color, 0.5) #{$grid-unit * 8},
+        rgba($background-color, 0.75) #{$grid-unit * 12},
+        rgba($background-color, 1) #{$grid-unit * 24}
     );
 }
 #background{
@@ -74,12 +75,14 @@ body{
     position: fixed;
     z-index: -1;
 
-    background-image: url('/assets/images/bg_hereford.jpg');
+    background-image: url('/assets/images/bg_fortress.jpg');
     background-size: cover;
-    background-position: bottom center;
+    background-position: top center;
     background-attachment: fixed;
 
-    animation: 30s ease-out background-entry both paused;
+    animation: 5s ease-out background-entry both paused;
+
+    filter: blur(4px);
 }
 header, main{
     animation: 1.5s ease-in-out content-entry both;
@@ -90,18 +93,14 @@ main{
 @keyframes background-entry{
     from{
         opacity: 0;
-        transform: scale(1.25);
-        filter: blur(4px);
+        transform: scale(1.1);
     }
-    10%{
-        opacity: 0.75;
-        filter: blur(0);
-    }
-    25%{
+    50%{
         opacity: 1;
     }
     to{
-        transform: scale(1);
+        opacity: 0.875;
+        transform: scale(1.05);
     }
 }
 @keyframes content-entry{
