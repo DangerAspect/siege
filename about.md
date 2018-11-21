@@ -10,7 +10,9 @@ narrow-layout: true
 This site was created by <a href="https://twitter.com/joeyfjj">Joey</a> to provide an easily
 accessible site for various guides and tools for Siege. 
 
-If you're looking to discuss and to learn more about the game, why not join [the official game Discord](https://discord.gg/rainbow6)? 
+## Contact
+
+You can find me on [the official game Discord](https://discord.gg/rainbow6) or via [GitHub](https://github.com/joeyfoo). 
 
 ## Contributing
 
