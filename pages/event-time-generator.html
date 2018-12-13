@@ -258,7 +258,8 @@ description: A time zone converter for event time and schedules.
                 valuesString += `|${stripCharacter(element.name)}|${stripCharacter(element.venueTime)}`;
             });
         }
-        return encodeURIComponent(valuesString);
+        //return encodeURIComponent(valuesString);
+        return valuesString.replace(" ", "%20");
     }
 
     function showLink(preview){
@@ -267,9 +268,9 @@ description: A time zone converter for event time and schedules.
         if(result != false){
             document.getElementById("status-message").innerText = `The generated event URL is: `;
             document.getElementById("generated-link").innerText = url;
-        }
-        if(preview){
-            window.open(url, "preview");
+            if(preview){
+                window.open(url, "preview");
+            }
         }
     }
 
