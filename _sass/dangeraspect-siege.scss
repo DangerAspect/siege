@@ -18,6 +18,7 @@ $base-line-height: 2.0 !default;
 
 $text-color:       #fff !default;
 $accent-color:      #aa854f !default;
+
 $dark-background: rgba(0, 0, 0, 0.5);
 $subtle-color:       #cfcfcf !default;
 
@@ -26,6 +27,7 @@ $input-color: scale-color($accent-color, $lightness: -25%);
 $input-border: 1px solid $input-color;
 $input-focus-border: 1px solid #fff;
 $input-focus-shadow: inset 0 0 12px saturate(lighten($input-color, 20%), 50%), 0 0 8px saturate(lighten($input-color, 20%), 50%);
+$accent-legible-color: scale-color($accent-color, $lightness: 50%, $saturation: 50%);
 
 $content-width:    24 * $grid-unit !default;
 
@@ -166,7 +168,7 @@ p{
 }
 
 a{
-    color: $accent-color;
+    color: $accent-legible-color;
 }
 
 small{
