@@ -75,14 +75,14 @@ body{
     position: fixed;
     z-index: -1;
 
-    background-image: url('/assets/images/bg_fortress.jpg');
+    background-image: url('/assets/images/bg_windbastion.jpg');
     background-size: cover;
-    background-position: top center;
+    background-position: bottom center;
     background-attachment: fixed;
 
     animation: 5s ease-out background-entry both paused;
 
-    filter: blur(4px);
+    //filter: blur(4px);
 }
 header, main{
     animation: 1.5s ease-in-out content-entry both;
@@ -299,7 +299,7 @@ hr{
     .list-item{
         .list-link{
             display: block;
-            height: $grid-unit * 1.5;
+            min-height: $grid-unit * 1.5;
             overflow: hidden;
             @include form-control();
             display: flex;
@@ -324,13 +324,14 @@ hr{
 .list-filter{
     margin-bottom: $grid-unit;
     display: flex;
+    flex-wrap: wrap;
     .list-filter-text{
-        flex: auto;
+        flex: 1 0 66%;
         min-width: $grid-unit * 6;
     }
     .list-filter-category{
-        flex: none;
-        width: $grid-unit * 6;
+        flex: 1 0 33%;
+        min-width: $grid-unit * 6;
     }
 }
 
@@ -348,6 +349,7 @@ hr{
     font-family: $header-font-family;
     font-weight: 200;
     @include fontSize($grid-unit);
+    text-shadow: 0 0 0.25rem $accent-color;
 
     max-width: $content-width;
     margin: 0 auto;
@@ -355,6 +357,7 @@ hr{
     margin-bottom: $grid-unit*2;
 
     display: flex;
+    flex-wrap: wrap;
     a{
         display: block;
         color: $text-color;
@@ -378,10 +381,10 @@ hr{
             flex: initial;
             padding-right: $grid-unit * 0.5;
 
-            opacity: 0.5;
+            opacity: 0.75;
 
             &:hover, &:focus{
-                opacity: 0.75;
+                opacity: 1;
             }
             &.active{
                 opacity: 1;
@@ -416,6 +419,7 @@ hr{
     opacity: 0.5;
 
     display: flex;
+    flex-wrap: wrap;
 
     .site-identity{
         flex: auto;
@@ -433,5 +437,15 @@ hr{
     }
     p{
         margin: 0;
+    }
+}
+
+//Small displays
+@media (max-width: $narrow-width){
+    .site-header{
+        flex-direction: column;
+        .site-nav{
+            justify-content: flex-start;
+        }
     }
 }

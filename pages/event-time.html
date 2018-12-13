@@ -292,7 +292,7 @@ description: A time zone converter for event time and schedules.
     }
     .schedule-item{
         display: table-row;
-        height: 5rem;
+        min-height: 5rem;
     }
     .schedule-item:hover{
         background-color: rgba(128, 128, 128, 0.5);
@@ -317,5 +317,20 @@ description: A time zone converter for event time and schedules.
         font-size: 1.5rem;
         width: 100%;
         padding-bottom: 0.5rem;
+    }
+    @media (max-width: 640px){
+        .schedule-item-time{
+            display: block;
+            margin-bottom: 1rem;
+        }
+        .schedule-item-name{
+            display: block;
+        }
+        .schedule-item{
+            display: block;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px dotted #808080;
+        }
     }
 </style>
