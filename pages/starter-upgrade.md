@@ -21,6 +21,8 @@ Since you cannot upgrade Starter edition to a higher tier, here are the options.
 
 Ubisoft suggests in their [Starter Edition FAQ](https://support.ubi.com/en-US/Faqs/000025116/Starter-Edition-FAQ) purchasing the 4920 R6 Credits pack (around USD 35/EUR 29) which will allow you to unlock all 14 remaining Original operators with R6 Credits to spare.
 
+Since the only difference between Starter and Standard editions are the lack of Original operators, this effectively puts you on par with the Standard edition. 
+
 -----
 
 ### Forfeiting the purchase and re-purchasing the game
@@ -38,7 +40,7 @@ After the game has been removed, repurchase the desired edition of the game.
 
 ### Sticking with Starter 
 
-Assuming both options seem unappealing, why not try sticking with Starter edition? 
+Assuming both options seem unappealing, why not try sticking with Starter edition? I know, it's not technically upgrading from the Starter edition... 
 
 There are other options for acquiring more operators for the game, for example purchasing DLC Operator Bundles. These bundles unlock all 8 DLC Operators from that specific year. They cost 2400 R6 Credits each, with the Year 1 bundle on discount until 4 March 2019 for 1440 R6 Credits.
 

@@ -11,6 +11,12 @@ list_contents:
       url: /editions
       category: Article
       tags: [Editions, Starter, Standard, Advanced, Gold, Complete, Table]
+
+    - title: Upgrading from Starter edition
+      date: 2018-12-29
+      url: /starter
+      category: Article
+      tags: [Editions, Starter, Upgrade]
     
     - title: Comparison of Weapon Sights
       date: 2018-09-09
