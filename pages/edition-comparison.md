@@ -117,7 +117,8 @@ Additional information and context are provided after the table below.
             <tr>
                 <th>Summary</th>
                 <td> <!--Starter Edition-->
-                    A low-priced entry point to Siege, in exchange for more time needed to unlock operators.
+                    A low-priced entry point to Siege, in exchange for more time needed to unlock operators. <br>
+                    <i>Only available on PC.</i>
                 </td>
                 <td> <!--Standard Edition-->
                     The normal base edition of the game.
@@ -270,6 +271,19 @@ Additional information and context are provided after the table below.
 </div>
 
 ## Additional information
+
+### Differences between Starter and Standard editions
+
+The only difference between Starter and Standard editions is the unlocking of the 20 Original operators. All editions apart from Starter include the 20 Original operators, unlocked immediately. 
+
+Starter edition comes with only 6 random operators unlocked: -- 3 Attackers + 3 Defenders, randomly selected from the following pool:
+
+* Attackers: Ash, Thermite, Thatcher, Fuze, Sledge.
+* Defenders: Rook, Mute, Smoke, Jager, Kapkan. 
+
+Additional Original operators can be unlocked for 12500 Renown or 300 R6 Credits each. 
+
+DLC operators can be unlocked similar to Standard edition with 25000 Renown/600 R6 Credits each. 
 
 ### Renown and R6 Credits
 

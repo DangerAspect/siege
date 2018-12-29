@@ -162,6 +162,10 @@ h4{
         @include fontSize($grid-unit);
     }
 }
+.important{
+    border: 1px solid $accent-color;
+    padding: $grid-unit/4;
+}
 
 p{
     margin: $grid-unit*0.5 auto;
