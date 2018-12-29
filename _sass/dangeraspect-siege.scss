@@ -63,8 +63,8 @@ body{
 
     background-image: linear-gradient(to bottom, 
         rgba($background-color, 0), 
-        rgba($background-color, 0.5) #{$grid-unit * 8},
-        rgba($background-color, 0.75) #{$grid-unit * 12},
+        rgba($background-color, 0.6) #{$grid-unit * 8},
+        rgba($background-color, 0.8) #{$grid-unit * 12},
         rgba($background-color, 1) #{$grid-unit * 24}
     );
 }
