@@ -259,7 +259,8 @@ Additional information and context are provided after the table below.
             <tr>
                 <th>Included R6 Credits</th>
                 <td colspan="2" class="none">Not included</td>
-                <td colspan="3" class="included">600 R6 Credits</td>
+                <td class="included">600 R6 Credits</td>
+                <td colspan="2" class="included">1200 R6 Credits <br><small>(inclusive of the 600 granted by the Season Pass)</small></td>
             </tr>
             <tr>
                 <th>Outbreak Packs</th>
