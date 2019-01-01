@@ -13,6 +13,10 @@ Instructions for [setting up the playlist](#setting-up-the-playlist) are located
 
 ## Game Settings
 
+### Summary
+
+In short, most notable leagues use similar settings, with differences in overtime rules, and minor variations in the Pick Phase and 6th Pick timers. 
+
 {% include_relative interactive/playlist.html %}
 
 ## Setting up the playlist

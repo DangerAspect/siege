@@ -29,6 +29,12 @@ list_contents:
       url: /event-time
       category: Tool
       tags: [TZ, Time, Zone, Timezone, Converter]
+    
+    - title: Competitive Custom Game Playlist Settings
+      date: 2018-11-21
+      url: /playlist
+      category: Tool
+      tags: [Pro, Challenger League, ESL, Settings, Playlist, Match, Go4]
 
 ---
 
