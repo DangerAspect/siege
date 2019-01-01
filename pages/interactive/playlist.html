@@ -1,0 +1,619 @@
+<h3>Toggle leagues</h3>
+
+<p>
+    You can hide/show other leagues with these toggles:
+</p>
+
+<form id="toggle-panel" onchange="toggleColVisibility();">
+    <input type="checkbox" id="toggle-eslbo1" value="row-eslbo1">
+    <label for="toggle-eslbo1"><div>Pro League (Bo1)</div></label>
+
+    <input type="checkbox" id="toggle-eslbo3" value="row-eslbo3" checked>
+    <label for="toggle-eslbo3"><div>Pro League (Bo3)</div></label>
+
+    <input type="checkbox" id="toggle-eslbo5" value="row-eslbo5">
+    <label for="toggle-eslbo5"><div>Pro League (Bo1)</div></label>
+
+    <input type="checkbox" id="toggle-eslgo4" value="row-eslgo4" checked>
+    <label for="toggle-eslgo4"><div>ESL Go4R6 &amp; CL</div></label>
+
+    <input type="checkbox" id="toggle-r6tm" value="row-r6tm" checked>
+    <label for="toggle-r6tm"><div>R6TM</div></label>
+
+    <input type="checkbox" id="toggle-ccs" value="row-ccs">
+    <label for="toggle-ccs"><div>CCS</div></label>
+
+    <input type="checkbox" id="toggle-default" value="row-default" checked>
+    <label for="toggle-default"><div>Default</div></label>
+</form>
+
+<h3>Settings</h3>
+
+<table>
+    <thead>
+        <tr>
+            <th class="row-header">Playlist</th>
+            <th class="row-eslbo1">ESL Pro League <em>(Best of 1)</em></th><!--ESLBo1-->
+            <th class="row-eslbo3">ESL Pro League <em>(Best of 3)</em></th><!--ESLBo3-->
+            <th class="row-eslbo5">ESL Pro League <em>(Best of 5)</em></th><!--ESLBo5-->
+            <th class="row-eslgo4">ESL Go4R6; Challenger League</th><!--eslgo4-->
+            <th class="row-r6tm">Rainbow Six Ten Mans (R6TM)</th><!--R6TM-->
+            <th class="row-ccs">CCS</th><!--CCS-->
+            <th class="row-default">Default game settings</th> <!--Default-->
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th class="row-header">Organiser</th>
+            <td class="row-eslbo1">ESL</td>
+            <td class="row-eslbo3">ESL</td>
+            <td class="row-eslbo5">ESL</td>
+            <td class="row-eslgo4">ESL</td>
+            <td class="row-r6tm">R6TM</td>
+            <td class="row-ccs">CCS</td>
+            <td class="row-default"></td>
+        </tr>
+        <tr>
+            <th class="row-header">URL</th>
+            <td class="row-eslbo1"><a href="https://pro.eslgaming.com/r6/proleague/">Website</a></td>
+            <td class="row-eslbo3"><a href="https://pro.eslgaming.com/r6/proleague/">Website</a></td>
+            <td class="row-eslbo5"><a href="https://pro.eslgaming.com/r6/proleague/">Website</a></td>
+            <td class="row-eslgo4"><a href="https://play.eslgaming.com/rainbowsix/">Website</a></td>
+            <td class="row-r6tm"><a href="https://r6tm.pro/">Website</a></td>
+            <td class="row-ccs"><a href="https://www.ccsesports.com/">Website</a></td>
+            <td class="row-default"></td>
+        </tr>
+        <tr>
+            <th class="row-header">Rulebook</th>
+            <td class="row-eslbo1"><a href="https://pro.eslgaming.com/r6/proleague/wp-content/uploads/2018/12/Rulebook_Pro_League.pdf">Rulebook</a></td>
+            <td class="row-eslbo3"><a href="https://pro.eslgaming.com/r6/proleague/wp-content/uploads/2018/12/Rulebook_Pro_League.pdf">Rulebook</a></td>
+            <td class="row-eslbo5"><a href="https://pro.eslgaming.com/r6/proleague/wp-content/uploads/2018/12/Rulebook_Pro_League.pdf">Rulebook</a></td>
+            <td class="row-eslgo4"><a href="https://play.eslgaming.com/rainbowsix/north-america-pc/r6siege/major/challenger-league/season-9-groupstage/rules/">Rules page</a></td>
+            <td class="row-r6tm"><a href="https://r6tm.pro/R6TM_Rulebook.pdf">Rulebook</a></td>
+            <td class="row-ccs"><a href="https://docs.wixstatic.com/ugd/07ea38_a663b4a4c80e40c3a9b727361edd0b37.pdf">Rulebook</a></td>
+            <td class="row-default"></td>
+        </tr>
+        <tr>
+            <th class="row-header">Notes</th>
+            <td class="row-eslbo1">Operator quarantine: Lion, Kaid, Nomad disallowed</td>
+            <td class="row-eslbo3">Operator quarantine: Lion, Kaid, Nomad disallowed</td>
+            <td class="row-eslbo5">Operator quarantine: Lion, Kaid, Nomad disallowed</td>
+            <td class="row-eslgo4">Rules may differ between each tournament: always check! <br>Operator quarantine: Lion, Kaid, Nomad disallowed</td>
+            <td class="row-r6tm">Use of Lion prohibited</td>
+            <td class="row-ccs">Operator quarantine: Lion, Kaid, Nomad disallowed</td>
+            <td class="row-default">These are the default Settings when creating a new playlist.</td>
+        </tr>
+        <tr>
+            <th class="setting-menu">Playlist and Map Settings</th>
+            <td class="row-eslbo1"></td>
+            <td class="row-eslbo3"></td>
+            <td class="row-eslbo5"></td>
+            <td class="row-eslgo4"></td>
+            <td class="row-r6tm"></td>
+            <td class="row-ccs"></td>
+            <td class="row-default"></td>
+        </tr>
+        <tr>
+            <th class="row-header">Playlist Type</th>
+            <td class="row-eslbo1">Normal Mode</td>
+            <td class="row-eslbo3">Normal Mode</td>
+            <td class="row-eslbo5">Normal Mode</td>
+            <td class="row-eslgo4">Normal Mode</td>
+            <td class="row-r6tm">Normal Mode</td>
+            <td class="row-ccs">Normal Mode</td>
+            <td class="row-default"></td>
+        </tr>
+        <tr>
+            <th class="row-header">Map Pool</th>
+            <td class="row-eslbo1">Bank <br>Border <br>Club House <br>Consulate <br>Coastline <br>Oregon <br>Villa</td>
+            <td class="row-eslbo3">Bank <br>Border <br>Club House <br>Consulate <br>Coastline <br>Oregon <br>Villa</td>
+            <td class="row-eslbo5">Bank <br>Border <br>Club House <br>Consulate <br>Coastline <br>Oregon <br>Villa</td>
+            <td class="row-eslgo4">Bank <br>Border <br>Club House <br>Consulate <br>Coastline <br>Oregon <br>Villa</td>
+            <td class="row-r6tm">Bank <br>Border <br>Club House <br>Consulate <br>Coastline <br>Oregon <br>Villa</td>
+            <td class="row-ccs">Bank <br>Border <br>Club House <br>Consulate <br>Coastline <br>Oregon <br>Villa</td>
+            <td class="row-default"></td>
+        </tr>
+        <tr>
+            <th class="row-header">Time of Day</th>
+            <td class="row-eslbo1">Day</td>
+            <td class="row-eslbo3">Day</td>
+            <td class="row-eslbo5">Day</td>
+            <td class="row-eslgo4">Day</td>
+            <td class="row-r6tm">Day</td>
+            <td class="row-ccs">Day</td>
+            <td class="row-default">Day</td>
+        </tr>
+        <tr>
+            <th class="row-header">HUD Settings</th>
+            <td class="row-eslbo1">Pro League</td>
+            <td class="row-eslbo3">Pro League</td>
+            <td class="row-eslbo5">Pro League</td>
+            <td class="row-eslgo4">Pro League</td>
+            <td class="row-r6tm">Pro League</td>
+            <td class="row-ccs">Pro League</td>
+            <td class="row-default">Normal</td>
+        </tr>
+        <tr>
+            <th class="setting-menu">Match Settings</th>
+            <td class="row-eslbo1"></td>
+            <td class="row-eslbo3"></td>
+            <td class="row-eslbo5"></td>
+            <td class="row-eslgo4"></td>
+            <td class="row-r6tm"></td>
+            <td class="row-ccs"></td>
+            <td class="row-default"></td>
+        </tr>
+        <tr>
+            <th class="setting-section">Banning</th>
+            <td class="row-eslbo1"></td>
+            <td class="row-eslbo3"></td>
+            <td class="row-eslbo5"></td>
+            <td class="row-eslgo4"></td>
+            <td class="row-r6tm"></td>
+            <td class="row-ccs"></td>
+            <td class="row-default"></td>
+        </tr>
+        <tr>
+            <th class="row-header">Number of Bans</th>
+            <td class="row-eslbo1">4</td>
+            <td class="row-eslbo3">4</td>
+            <td class="row-eslbo5">4</td>
+            <td class="row-eslgo4">4</td>
+            <td class="row-r6tm">4</td>
+            <td class="row-ccs">4</td>
+            <td class="row-default">Off</td>
+        </tr>
+        <tr>
+            <th class="row-header">Ban Timer</th>
+            <td class="row-eslbo1">20</td>
+            <td class="row-eslbo3">20</td>
+            <td class="row-eslbo5">20</td>
+            <td class="row-eslgo4">20</td>
+            <td class="row-r6tm">20</td>
+            <td class="row-ccs">20</td>
+            <td class="row-default setting-disabled">20</td>
+        </tr>
+        <tr>
+            <th class="setting-section">Rounds</th>
+            <td class="row-eslbo1"></td>
+            <td class="row-eslbo3"></td>
+            <td class="row-eslbo5"></td>
+            <td class="row-eslgo4"></td>
+            <td class="row-r6tm"></td>
+            <td class="row-ccs"></td>
+            <td class="row-default"></td>
+        </tr>
+        <tr>
+            <th class="row-header">Number of Bans</th>
+            <td class="row-eslbo1">4</td>
+            <td class="row-eslbo3">4</td>
+            <td class="row-eslbo5">4</td>
+            <td class="row-eslgo4">4</td>
+            <td class="row-r6tm">4</td>
+            <td class="row-ccs">4</td>
+            <td class="row-default">Off</td>
+        </tr>
+        <tr>
+            <th class="row-header">Ban Timer</th>
+            <td class="row-eslbo1">20</td>
+            <td class="row-eslbo3">20</td>
+            <td class="row-eslbo5">20</td>
+            <td class="row-eslgo4">20</td>
+            <td class="row-r6tm">20</td>
+            <td class="row-ccs"><abbr title="Not explicitly stated in rulebook.">???</abbr></td>
+            <td class="row-default setting-disabled">20</td><!--Default-->
+        </tr>
+        <tr>
+            <th class="setting-section">Rounds</th>
+            <td class="row-eslbo1"></td>
+            <td class="row-eslbo3"></td>
+            <td class="row-eslbo5"></td>
+            <td class="row-eslgo4"></td>
+            <td class="row-r6tm"></td>
+            <td class="row-ccs"></td>
+            <td class="row-default"></td>
+        </tr>
+        <tr>
+            <th class="row-header">Number of Rounds</th>
+            <td class="row-eslbo1">12</td>
+            <td class="row-eslbo3">12</td>
+            <td class="row-eslbo5">12</td>
+            <td class="row-eslgo4">12</td>
+            <td class="row-r6tm">12</td>
+            <td class="row-ccs">12</td>
+            <td class="row-default">6</td>
+        </tr>
+        <tr>
+            <th class="row-header">Attacker/Defender Role swap</th>
+            <td class="row-eslbo1">6</td>
+            <td class="row-eslbo3">6</td>
+            <td class="row-eslbo5">6</td>
+            <td class="row-eslgo4">6</td>
+            <td class="row-r6tm">6</td>
+            <td class="row-ccs">6</td>
+            <td class="row-default">1</td>
+        </tr>
+        <tr>
+            <th class="row-header">Overtime Rounds</th>
+            <td class="row-eslbo1">0</td>
+            <td class="row-eslbo3">3</td>
+            <td class="row-eslbo5">Infinite</td>
+            <td class="row-eslgo4">3</td>
+            <td class="row-r6tm">3</td>
+            <td class="row-ccs">3</td>
+            <td class="row-default">3</td>
+        </tr>
+        <tr>
+            <th class="row-header">Overtime Score Difference</th>
+            <td class="row-eslbo1 setting-disabled  "></td>
+            <td class="row-eslbo3">2</td>
+            <td class="row-eslbo5">2</td>
+            <td class="row-eslgo4">2</td>
+            <td class="row-r6tm">2</td>
+            <td class="row-ccs">2</td>
+            <td class="row-default">1</td>
+        </tr>
+        <tr>
+            <th class="row-header">Overtime Role Change</th>
+            <td class="row-eslbo1 setting-disabled  "></td>
+            <td class="row-eslbo3">1</td>
+            <td class="row-eslbo5">1</td>
+            <td class="row-eslgo4">1</td>
+            <td class="row-r6tm">1</td>
+            <td class="row-ccs">1</td>
+            <td class="row-default">1</td>
+        </tr>
+        <tr>
+            <th class="row-header">Objective Rotation Parameter</th>
+            <td class="row-eslbo1">2</td>
+            <td class="row-eslbo3">2</td>
+            <td class="row-eslbo5">2</td>
+            <td class="row-eslgo4">2</td>
+            <td class="row-r6tm">2</td>
+            <td class="row-ccs">2</td>
+            <td class="row-default">Off</td>
+        </tr>
+        <tr>
+            <th class="row-header">Objective Type Rotation</th>
+            <td class="row-eslbo1">Rounds Played</td>
+            <td class="row-eslbo3">Rounds Played</td>
+            <td class="row-eslbo5">Rounds Played</td>
+            <td class="row-eslgo4">Rounds Played</td>
+            <td class="row-r6tm">Rounds Played</td>
+            <td class="row-ccs">Rounds Played</td>
+            <td class="row-default">Rounds Played</td>
+        </tr>
+        <tr>
+            <th class="row-header">Attacker Unique Spawn</th>
+            <td class="row-eslbo1">On</td>
+            <td class="row-eslbo3">On</td>
+            <td class="row-eslbo5">On</td>
+            <td class="row-eslgo4">On</td>
+            <td class="row-r6tm">On</td>
+            <td class="row-ccs">On</td>
+            <td class="row-default">Off</td>
+        </tr>
+        <tr>
+            <th class="row-header">Pick Phase Timer</th>
+            <td class="row-eslbo1">15</td>
+            <td class="row-eslbo3">15</td>
+            <td class="row-eslbo5">15</td>
+            <td class="row-eslgo4">15</td>
+            <td class="row-r6tm">30</td>
+            <td class="row-ccs">25</td>
+            <td class="row-default">30</td>
+        </tr>
+        <tr>
+            <th class="row-header">6TH Pick Phase</th>
+            <td class="row-eslbo1">On</td>
+            <td class="row-eslbo3">On</td>
+            <td class="row-eslbo5">On</td>
+            <td class="row-eslgo4">On</td>
+            <td class="row-r6tm">On</td>
+            <td class="row-ccs">On</td>
+            <td class="row-default">Off</td>
+        </tr>
+        <tr>
+            <th class="row-header">6TH Pick Phase Timer</th>
+            <td class="row-eslbo1">15</td>
+            <td class="row-eslbo3">15</td>
+            <td class="row-eslbo5">15</td>
+            <td class="row-eslgo4">15</td>
+            <td class="row-r6tm">20</td>
+            <td class="row-ccs">20</td>
+            <td class="row-default setting-disabled">30</td>
+        </tr>
+        <tr>
+            <th class="row-header">Reveal Phase Timer</th>
+            <td class="row-eslbo1">5</td>
+            <td class="row-eslbo3">5</td>
+            <td class="row-eslbo5">5</td>
+            <td class="row-eslgo4">5</td>
+            <td class="row-r6tm"><abbr title="Not explicitly stated in rulebook.">???</abbr></td>
+            <td class="row-ccs"><abbr title="Not explicitly stated in rulebook.">???</abbr></td>
+            <td class="row-default setting-disabled">9</td>
+        </tr>
+        <tr>
+            <th class="setting-section">Health &amp; Damage</th>
+            <td class="row-eslbo1"></td>
+            <td class="row-eslbo3"></td>
+            <td class="row-eslbo5"></td>
+            <td class="row-eslgo4"></td>
+            <td class="row-r6tm"></td>
+            <td class="row-ccs"></td>
+            <td class="row-default"></td>
+        </tr>
+        <tr>
+            <th class="row-header">Damage Handicap</th>
+            <td class="row-eslbo1">100</td>
+            <td class="row-eslbo3">100</td>
+            <td class="row-eslbo5">100</td>
+            <td class="row-eslgo4">100</td>
+            <td class="row-r6tm">100</td>
+            <td class="row-ccs">100</td>
+            <td class="row-default">100</td>
+        </tr>
+        <tr>
+            <th class="row-header">Friendly Fire Damage</th>
+            <td class="row-eslbo1">100</td>
+            <td class="row-eslbo3">100</td>
+            <td class="row-eslbo5">100</td>
+            <td class="row-eslgo4">100</td>
+            <td class="row-r6tm">100</td>
+            <td class="row-ccs">100</td>
+            <td class="row-default">100</td>
+        </tr>
+        <tr>
+            <th class="row-header">Injured</th>
+            <td class="row-eslbo1">20</td>
+            <td class="row-eslbo3">20</td>
+            <td class="row-eslbo5">20</td>
+            <td class="row-eslgo4">20</td>
+            <td class="row-r6tm">20</td>
+            <td class="row-ccs">20</td>
+            <td class="row-default">20</td>
+        </tr>
+        <tr>
+            <th class="setting-section">Character Control</th>
+            <td class="row-eslbo1"></td>
+            <td class="row-eslbo3"></td>
+            <td class="row-eslbo5"></td>
+            <td class="row-eslgo4"></td>
+            <td class="row-r6tm"></td>
+            <td class="row-ccs"></td>
+            <td class="row-default"></td>
+        </tr>
+        <tr>
+            <th class="row-header">Sprint</th>
+            <td class="row-eslbo1">On</td>
+            <td class="row-eslbo3">On</td>
+            <td class="row-eslbo5">On</td>
+            <td class="row-eslgo4">On</td>
+            <td class="row-r6tm">On</td>
+            <td class="row-ccs">On</td>
+            <td class="row-default">On</td>
+        </tr>
+        <tr>
+            <th class="row-header">Lean</th>
+            <td class="row-eslbo1">On</td>
+            <td class="row-eslbo3">On</td>
+            <td class="row-eslbo5">On</td>
+            <td class="row-eslgo4">On</td>
+            <td class="row-r6tm">On</td>
+            <td class="row-ccs">On</td>
+            <td class="row-default">On</td>
+        </tr>
+        <tr>
+                <th class="setting-section">Death</th>
+            <td class="row-eslbo1"></td>
+            <td class="row-eslbo3"></td>
+            <td class="row-eslbo5"></td>
+            <td class="row-eslgo4"></td>
+            <td class="row-r6tm"></td>
+            <td class="row-ccs"></td>
+            <td class="row-default"></td>
+            </tr>
+        <tr>
+            <th class="row-header">Death Replay</th>
+            <td class="row-eslbo1">Off</td>
+            <td class="row-eslbo3">Off</td>
+            <td class="row-eslbo5">Off</td>
+            <td class="row-eslgo4">Off</td>
+            <td class="row-r6tm">Off</td>
+            <td class="row-ccs">Off</td>
+            <td class="row-default">On</td>
+        </tr>
+        <tr>
+            <th class="row-header">Game Mode</th>
+            <td class="row-eslbo1">Bomb</td>
+            <td class="row-eslbo3">Bomb</td>
+            <td class="row-eslbo5">Bomb</td>
+            <td class="row-eslgo4">Bomb</td>
+            <td class="row-r6tm">Bomb</td>
+            <td class="row-ccs">Bomb</td>
+            <td class="row-default">Hostage</td>
+        </tr>
+        <tr>
+            <th class="setting-menu">Game Mode Settings</th>
+            <td class="row-eslbo1"></td>
+            <td class="row-eslbo3"></td>
+            <td class="row-eslbo5"></td>
+            <td class="row-eslgo4"></td>
+            <td class="row-r6tm"></td>
+            <td class="row-ccs"></td>
+            <td class="row-default"></td>
+        </tr>
+        <tr>
+            <th class="setting-section">Bomb Parameters</th>
+            <td class="row-eslbo1"></td>
+            <td class="row-eslbo3"></td>
+            <td class="row-eslbo5"></td>
+            <td class="row-eslgo4"></td>
+            <td class="row-r6tm"></td>
+            <td class="row-ccs"></td>
+            <td class="row-default"></td>
+        </tr>
+        <tr>
+            <th class="row-header">Plant Duration</th>
+            <td class="row-eslbo1">7</td>
+            <td class="row-eslbo3">7</td>
+            <td class="row-eslbo5">7</td>
+            <td class="row-eslgo4">7</td>
+            <td class="row-r6tm">7</td>
+            <td class="row-ccs">7</td>
+            <td class="row-default">7</td>
+        </tr>
+        <tr>
+            <th class="row-header">Defuse Duration</th>
+            <td class="row-eslbo1">7</td>
+            <td class="row-eslbo3">7</td>
+            <td class="row-eslbo5">7</td>
+            <td class="row-eslgo4">7</td>
+            <td class="row-r6tm">7</td>
+            <td class="row-ccs">7</td>
+            <td class="row-default">7</td>
+        </tr>
+        <tr>
+            <th class="row-header">Fuse Time</th>
+            <td class="row-eslbo1">45</td>
+            <td class="row-eslbo3">45</td>
+            <td class="row-eslbo5">45</td>
+            <td class="row-eslgo4">45</td>
+            <td class="row-r6tm">45</td>
+            <td class="row-ccs">45</td>
+            <td class="row-default">45</td>
+        </tr>
+        <tr>
+            <th class="row-header">Defuser Carrier Selection</th>
+            <td class="row-eslbo1">On</td>
+            <td class="row-eslbo3">On</td>
+            <td class="row-eslbo5">On</td>
+            <td class="row-eslgo4">On</td>
+            <td class="row-r6tm">On</td>
+            <td class="row-ccs"><abbr title="Not explicitly stated in rulebook.">On</abbr></td>
+            <td class="row-default">On</td>
+        </tr>
+        <tr>
+            <th class="setting-section">Phases</th>
+            <td class="row-eslbo1"></td>
+            <td class="row-eslbo3"></td>
+            <td class="row-eslbo5"></td>
+            <td class="row-eslgo4"></td>
+            <td class="row-r6tm"></td>
+            <td class="row-ccs"></td>
+            <td class="row-default"></td>
+        </tr>
+        <tr>
+            <th class="row-header">Preperation Phase Duration</th>
+            <td class="row-eslbo1">45</td>
+            <td class="row-eslbo3">45</td>
+            <td class="row-eslbo5">45</td>
+            <td class="row-eslgo4">45</td>
+            <td class="row-r6tm">45</td>
+            <td class="row-ccs">45</td>
+            <td class="row-default">45</td>
+        </tr>
+        <tr>
+            <th class="row-header">Action Phase Duration</th>
+            <td class="row-eslbo1">180</td>
+            <td class="row-eslbo3">180</td>
+            <td class="row-eslbo5">180</td>
+            <td class="row-eslgo4">180</td>
+            <td class="row-r6tm">180</td>
+            <td class="row-ccs">180</td>
+            <td class="row-default">180</td>
+        </tr>
+    </tbody>
+</table>
+
+<style>
+    #toggle-panel input[type="checkbox"] + label{
+        display: inline-block; 
+        width: 14rem;
+    }
+    #toggle-panel{
+        margin-bottom: 48px;
+    }
+    .table-container{
+        width: 100%;
+        height: calc(100vh - 128px);
+        overflow: scroll;
+        margin: 4rem auto;
+    }
+
+    table{
+        margin: 0 auto;
+    }
+    table thead{
+        position: sticky;
+        top: 0;
+        z-index: 1;
+        background-color: #222;
+    }
+    table thead tr th{
+        text-align: left;
+        background-color: #333;
+    }
+    table tbody tr th{
+        font-weight: normal;
+        text-align: left;
+        position: sticky;
+        left: 0;
+        background-color: #111;
+    }
+    table tbody tr:hover{
+        background-color: #333;
+    }
+
+    .row-header{
+        width: 16rem;
+    }
+    .row-eslbo1, .row-eslbo3, .row-eslbo5, .row-eslgo4, .row-r6tm, .row-ccs, .row-default{
+        width: auto;
+    }
+    .row-hidden{
+        display: none;
+    }
+
+    .setting-disabled{
+        opacity: 0.25;
+    }
+
+    .setting-menu{
+        background-color: #333;
+        text-align: center;
+        font-weight: bold;
+    }
+    .setting-section{
+        background-color: #222;
+        border-top: 1px solid currentColor;
+        font-weight: bold;
+    }
+
+</style>
+
+<script>
+    function toggleColVisibility(){
+        const panel = document.getElementById("toggle-panel");
+        const checkboxes = panel.getElementsByTagName("input");
+        for (let i = 0; i < checkboxes.length; i++) {
+            const checkbox = checkboxes[i];
+
+            const isVisible = checkbox.checked;
+            const leagueName = checkbox.value;
+
+            const tdElements = document.getElementsByClassName(leagueName);
+            for (let x = 0; x < tdElements.length; x++) {
+                const tdElement = tdElements[x];
+                
+                if(isVisible){
+                    tdElement.classList.remove("row-hidden");
+                }
+                else{
+                    tdElement.classList.add("row-hidden");
+                }
+            }
+        }
+    }
+    window.onload = toggleColVisibility;
+</script>
