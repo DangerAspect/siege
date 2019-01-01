@@ -13,7 +13,7 @@ If you're trying to find out what the Starter edition is, you can find [a compar
 
 Since you cannot upgrade Starter edition to a higher tier, here are the options. 
 
-<p class="important"><strong>REMINDER</strong>: This is a fan-run website. While an effort was made to provide accurate information, you follow advice provided here at your own risk. If in doubt, consult with <a href="https://support.ubi.com/">Ubisoft Support</a> before proceeding.</p>
+{% include disclaimer.html %}
 
 -----
 

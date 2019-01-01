@@ -173,10 +173,17 @@ p{
 
 a{
     color: $accent-legible-color;
+    text-decoration: none;
+    border-bottom: 1px solid currentColor;
 }
 
 small{
     @include fontSize($grid-unit * 0.4);
+}
+
+abbr[title]{
+    text-decoration: none;
+    border-bottom: 1px dotted currentColor;
 }
 
 .table-emphasis{
@@ -191,7 +198,7 @@ small{
 }
 
 table{
-    width: 100%;
+    width: auto;
     border-collapse: separate;
     border-spacing: $grid-unit * 0.125;
     table-layout: fixed;
@@ -224,7 +231,7 @@ table{
 
     text-decoration: none;
 
-    transition: 0.1s linear padding-left;
+    transition: 0.1s linear padding;
     &:hover, &:focus{
         border: $input-focus-border;
         box-shadow: $input-focus-shadow;
@@ -368,6 +375,7 @@ hr{
         display: block;
         color: $text-color;
         text-decoration: none;
+        border: none;
     }
     .site-title{
         flex: auto;
