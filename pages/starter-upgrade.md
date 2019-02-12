@@ -5,6 +5,8 @@ permalink: /starter
 description: "You can't upgrade from Starter Edition directly, so here are your options."
 ---
 
+<p class="important"><strong>OUTDATED</strong>: Ubisoft has announced <a href="https://rainbow6.ubisoft.com/siege/en-us/news/152-344167-16/rainbow-six-siege-year-4-editions-launching-february-12">updated game editions for Year 4, including the removal of Starter Edition.</a> </p>
+
 There isn't a direct upgrade path from Starter edition once you've purchased it.
 
 If you're trying to find out what the Starter edition is, you can find [a comparison between Starter and all other editions on this site](/editions), or in the [Starter Edition FAQ on Ubisoft Support](https://support.ubi.com/en-US/Faqs/000025116/Starter-Edition-FAQ).     

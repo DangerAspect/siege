@@ -81,6 +81,8 @@ image: /assets/images/covers/standard.jpg
     }
 </script>
 
+<p class="important"><strong>OUTDATED</strong>: Ubisoft has announced <a href="https://rainbow6.ubisoft.com/siege/en-us/news/152-344167-16/rainbow-six-siege-year-4-editions-launching-february-12">updated game editions for Year 4, including the removal of Starter Edition.</a> </p>
+
 The following is a detailed comparison of the various editions available when purchasing Rainbow Six: Siege. 
 
 Rainbow Six: Siege allows unlocking all gameplay content including maps and operators simply through in-game progression. All maps and weapon attachments are instantly unlocked for all players out of the box. 
