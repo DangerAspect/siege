@@ -155,6 +155,9 @@ h3{
 h4{
     @include heading($grid-unit * 0.5);
 }
+img{
+    width: 100%;
+}
 .logo{
     @include logo();
 }
