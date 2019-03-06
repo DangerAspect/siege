@@ -17,12 +17,12 @@ $base-font-weight: 400 !default;
 $base-line-height: 2.0 !default;
 
 $text-color:       #fff !default;
-$accent-color:      #aa854f !default;
+$accent-color:      #cc3311 !default;
 
 $dark-background: rgba(0, 0, 0, 0.5);
 $subtle-color:       #cfcfcf !default;
 
-$background-image: url('/assets/images/bg_windbastion.jpg');
+$background-image: url('/assets/images/bg_outback.jpg');
 
 //Dark
 $background-color: scale-color($accent-color, $lightness: -95%) !default;
@@ -31,6 +31,7 @@ $input-border: 1px solid $input-color;
 $input-focus-border: 1px solid #fff;
 $input-focus-shadow: inset 0 0 12px saturate(lighten($input-color, 20%), 50%), 0 0 8px saturate(lighten($input-color, 20%), 50%);
 $accent-legible-color: scale-color($accent-color, $lightness: 50%, $saturation: 50%);
+$legible-shadow: 0 0 0.25rem $background-color;
 
 $content-width:    24 * $grid-unit !default;
 
@@ -180,6 +181,7 @@ p{
 
 a{
     color: $accent-legible-color;
+    text-shadow: $legible-shadow;
     text-decoration: none;
     border-bottom: 1px solid currentColor;
 }
