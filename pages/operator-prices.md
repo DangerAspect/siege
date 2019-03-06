@@ -23,7 +23,8 @@ The Operator Lifecycle is a way to make post-launch operators more accessible to
 
 ### Changelog and credits
 
-* **Y4S1 / Revision 1**: Initial release
+* **Y4S1 / Revision 2**: GIS operators incorrectly listed as GIGR
+* Y4S1 / Revision 1: Initial release
 
 Operator icons from [marcopixel.eu/r6-operatoricons](htt[s://marcopixel.eu/r6-operatoricons]) and available under the CC BY 4.0 license.
 
