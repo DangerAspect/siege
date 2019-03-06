@@ -6,18 +6,12 @@ layout: home
 title: Home
 list_title: List of Site Contents
 list_contents:
-    - title: Game Editions Comparison and Notes
-      date: 2018-09-09
-      url: /editions
-      category: Article
-      tags: [Editions, Starter, Standard, Advanced, Gold, Complete, Table]
+    - title: DLC Operator Unlock Prices
+      date: 2019-03-06
+      url: /operatorprices
+      category: Infographic
+      tags: [DLC, Post, launch, operators, Price, Unlock, Renown]
 
-    - title: Upgrading from Starter edition
-      date: 2018-12-29
-      url: /starter
-      category: Article
-      tags: [Editions, Starter, Upgrade]
-    
     - title: Comparison of Weapon Sights
       date: 2018-09-09
       url: /sights
@@ -35,6 +29,19 @@ list_contents:
       url: /playlist
       category: Tool
       tags: [Pro, Challenger League, ESL, Settings, Playlist, Match, Go4]
+  
+list_contents_archive:
+    - title: Game Editions Comparison and Notes
+      date: 2018-09-09
+      url: /editions
+      category: Article
+      tags: [Editions, Starter, Standard, Advanced, Gold, Complete, Table]
+
+    - title: Upgrading from Starter edition
+      date: 2018-12-29
+      url: /starter
+      category: Article
+      tags: [Editions, Starter, Upgrade]
 
 ---
 
