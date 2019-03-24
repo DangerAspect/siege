@@ -3,11 +3,11 @@ layout: page
 title: Comparison of Weapon Sights
 permalink: /sights
 description: A comparison tool between the 1x scopes available as weapon attachments in Rainbow Six Siege. 
-image: /assets/images/sight-comparison/thumb.jpg
+image: /assets/images/sight-comparison/thumb.png
 ---
 
 <p>
-    This is a comparison between the six types of 1x scopes available as weapon attachments. This comparison does not include the 2.5x-magnification ACOG sight, or default weapon sights. 
+    This is a comparison between the six types of 1x scopes available as weapon attachments. This comparison does not include the 2.5x-magnification ACOG and "The Scope" sights, or default weapon sights. 
 </p>
 
 <p>
@@ -28,22 +28,26 @@ image: /assets/images/sight-comparison/thumb.jpg
     }
 
     #comparison-toggle-nato-holographic:checked + label{
-        background-color: rgba(0, 0, 255, 0.25);
+        background-color: rgba(127, 255, 0, 0.5);
     }
     #comparison-toggle-nato-reddot:checked + label{
-        background-color: rgba(255, 0, 0, 0.25);
+        background-color: rgba(229, 0, 0, 0.5);
     }
     #comparison-toggle-nato-reflex:checked + label{
-        background-color: rgba(0, 255, 0, 0.25);
+        background-color: rgba(0, 64, 255, 0.5);
     }
     #comparison-toggle-ru-holographic:checked + label{
-        background-color: rgba(0, 255, 255, 0.25);
+        background-color: rgba(0, 255, 255, 0.5);
     }
     #comparison-toggle-ru-reddot:checked + label{
-        background-color: rgba(255, 255, 0, 0.25);
+        background-color: rgba(255, 191, 0, 0.5);
     }
     #comparison-toggle-ru-reflex:checked + label{
-        background-color: rgba(255, 0, 255, 0.25);
+        background-color: rgba(128, 0, 255, 0.5);
+    }
+
+    svg #outline g{
+        mix-blend-mode: lighten;
     }
 
     @media screen and (min-width: 1200px){
@@ -83,9 +87,7 @@ image: /assets/images/sight-comparison/thumb.jpg
 <div class="comparison-options">
     <div id="comparison-options-bg" class="comparison-category">
         <p>
-            Use this tool to compare the body and viewport sizes of 1x weapon sight attachments. 
-            Reference screenshots and the backdrops are taken in the Test Server for Operation Grim Sky. 
-        </p>
+            Use this tool to compare the body and viewport sizes of 1x weapon sight attachments. Reference screenshots taken from the Y4S1.1 update.
         <h4>NATO vs. Russian sights</h4>
         <p>
             The NATO sights can be equipped on most guns, while Russian operators (i.e. Kapkan, Tachanka, Glaz, Fuze, and Finka) feature a unique set of Russian sights. 
@@ -93,7 +95,8 @@ image: /assets/images/sight-comparison/thumb.jpg
 
         <h3 class="settings-header">Backdrop</h3>
         <select id="comparison-bg" onchange="toggleBackdrop(this.value)">
-            <option value="none" selected>Blank background</option>
+            <option value="none" selected>Black background</option>
+            <option value="bg-scene">Empty scene</option>
             <optgroup label="NATO">
                 <option value="nato-holographic">NATO: Holographic</option>
                 <option value="nato-reddot">NATO: Red Dot</option>
@@ -160,7 +163,8 @@ image: /assets/images/sight-comparison/thumb.jpg
             document.getElementById(sights[index]).style.visibility = "hidden";
         }
         //Initial
-        toggleBackdrop(sights[0]);
+        console.log(sights[0]);
+        toggleBackdrop("bg-scene");
         toggleLayer(sights[0], true);
     }
     function toggleLayer(target, isVisible){
