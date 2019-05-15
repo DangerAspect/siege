@@ -9,6 +9,7 @@ image: /assets/images/covers/standard.jpg
 <style>
     table{
         min-width: 800px;
+        table-layout: fixed;
     }
     .sticky-header{
         position: sticky;
@@ -17,9 +18,32 @@ image: /assets/images/covers/standard.jpg
     .sticky-header th{
         background-color: #0e0f12;
     }
-    img.edition-cover{
-        width: 96px;
-        max-width: 75%;
+    .features{
+        width: 12rem;
+    }
+    .editions{
+        font-size: 1.5rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1ch;
+    }
+    .editions strong{
+        font-weight: 500;
+    }
+    .edition-deluxe{
+        background-color: #85241d !important;
+    }
+    .edition-gold{
+        background-color: #b83 !important;
+    }
+    .edition-ultimate{
+        background-color: #646464 !important;
+    }
+    .table-subheader{
+        font-weight: normal;
+        color: #ccc;
+    }
+    .table-text{
+        padding: 0 2rem;
     }
     .none{
         color: #888;
@@ -81,193 +105,162 @@ image: /assets/images/covers/standard.jpg
     }
 </script>
 
-<p class="important"><strong>OUTDATED</strong>: Ubisoft has announced <a href="https://rainbow6.ubisoft.com/siege/en-us/news/152-344167-16/rainbow-six-siege-year-4-editions-launching-february-12">updated game editions for Year 4, including the removal of Starter Edition.</a> </p>
-
-The following is a detailed comparison of the various editions available when purchasing Rainbow Six: Siege. 
+The following is a detailed comparison of the various editions available when purchasing Rainbow Six: Siege. This page has been updated for <a href="https://rainbow6.ubisoft.com/siege/en-us/news/152-344167-16/rainbow-six-siege-year-4-editions-launching-february-12">the changes made to game editions at the start of Year 4</a>, including the removal of Starter Edition.</p>
 
 Rainbow Six: Siege allows unlocking all gameplay content including maps and operators simply through in-game progression. All maps and weapon attachments are instantly unlocked for all players out of the box. 
 
 Additional information and context are provided after the table below. 
+
 <div class="overflow-container">
     <table>
         <thead class="sticky-header">
             <tr>
-                <th>Feature</th>
-                <th>
-                    <img src="/assets/images/covers/starter.jpg" class="edition-cover" alt="Starter edition cover">
-                    <br>Starter Edition
+                <th class="features">Feature</th>
+                <th class="editions edition-base font-header">
+                    <strong>Base</strong> Game
                 </th>
-                <th>
-                    <img src="/assets/images/covers/standard.jpg" class="edition-cover" alt="Standard edition cover">
-                    <br>Standard Edition
+                <th class="editions edition-deluxe font-header">
+                    <strong>Deluxe</strong> Edition
                 </th>
-                <th>
-                    <img src="/assets/images/covers/advanced.jpg" class="edition-cover" alt="Advanced edition cover">
-                    <br>Advanced Edition
+                <th class="editions edition-gold font-header">
+                    <strong>Gold</strong> Edition
                 </th>
-                <th>
-                    <img src="/assets/images/covers/gold.jpg" class="edition-cover" alt="Gold edition cover">
-                    <br>Gold Edition (Year 3)
-                </th>
-                <th>
-                    <img src="/assets/images/covers/complete.jpg" class="edition-cover" alt="Complete edition cover">
-                    <br>Complete Edition
+                <th class="editions edition-ultimate font-header">
+                    <strong>Ultimate</strong> Edition
                 </th>
             </tr>
         </thead>
         <tbody>
             <tr>
                 <th>Summary</th>
-                <td> <!--Starter Edition-->
-                    A low-priced entry point to Siege, in exchange for more time needed to unlock operators. <br>
-                    <i>Only available on PC.</i>
+                <td> <!--Base Edition-->
+                    The normal base edition of the game
                 </td>
-                <td> <!--Standard Edition-->
-                    The normal base edition of the game.
+                <td> <!--Deluxe Edition-->
+                    Base edition + 8 Year 1 operators unlocked
                 </td>
-                <td> <!--Advanced Edition-->
-                    Includes the Standard Edition, plus 600 R6 Credits and 10 Outbreak Packs.
+                <td> <!--Gold Edition-->
+                    Deluxe Edition + the Year 4 Pass
                 </td>
-                <td> <!--Gold Edition (Year 3)-->
-                    Includes the Advanced Edition, plus the Year 3 Pass.
-                </td>
-                <td> <!--Complete Edition-->
-                    Includes the Gold Edition, plus all Year 1 and Year 2 operators unlocked.
+                <td> <!--Ultimate Edition-->
+                    Base edition + all Year 1 to 4 operators unlocked + Year 4 pass
                 </td>
             </tr>
             <tr>
                 <th>Maps</th>
-                <td class="included">Included</td>
-                <td class="included">Included</td>
-                <td class="included">Included</td>
-                <td class="included">Included</td>
-                <td class="included">Included</td>
+                <td class="included" colspan="4">All maps are available to all players regardless of editions</td>
             </tr>
             <tr>
-                <th rowspan="5">Operators*</th>
-                <td> <!--Starter Edition-->
-                    <div class="table-emphasis"><em>6</em> unlocked</div>
+                <th>Operators</th>
+                <td> <!--Base Edition-->
+                    <div class="table-emphasis"><em>0</em> unlocked</div>
                 </td>
-                <td> <!--Standard Edition-->
-                    <div class="table-emphasis"><em>20</em> unlocked</div>
+                <td> <!--Deluxe Edition-->
+                    <div class="table-emphasis"><em>8</em> unlocked</div>
                 </td>
-                <td> <!--Advanced Edition-->
-                    <div class="table-emphasis"><em>20</em> unlocked</div>
+                <td> <!--Gold Edition-->
+                    <div class="table-emphasis"><em>16</em> unlocked</div>
                 </td>
-                <td> <!--Gold Edition (Year 3)-->
-                    <div class="table-emphasis"><em>28</em> unlocked</div>
-                </td>
-                <td> <!--Complete Edition-->
-                    <div class="table-emphasis"><em>44</em> unlocked</div>
+                <td> <!--Ultimate Edition-->
+                    <div class="table-emphasis"><em>32</em> unlocked</div>
                 </td>
             </tr>
             <tr>
-                <td class="locked">6 randomly selected Original operators*</td>
-                <td class="included">20 Original operators</td>
-                <td class="included">20 Original operators</td>
-                <td class="included">20 Original operators</td>
-                <td class="included">20 Original operators</td>
+                <th class="table-subheader">(Base)</th>
+                <td class="none" colspan="4">Unlockable for 500 to 2000 Renown each.</td>
             </tr>
             <tr>
+                <th class="table-subheader">(Year 1)</th>
                 <td class="none">Not included</td>
-                <td class="none">Not included</td>
-                <td class="none">Not included</td>
-                <td class="none">Not included</td>
+                <td class="included">8 Year 1 operators</td>
+                <td class="included">8 Year 1 operators</td>
                 <td class="included">8 Year 1 operators</td>
             </tr>
             <tr>
-                <td class="none">Not included</td>
-                <td class="none">Not included</td>
-                <td class="none">Not included</td>
-                <td class="none">Not included</td>
+                <th class="table-subheader">(Year 2)</th>
+                <td class="none" colspan="3">Not included</td>
                 <td class="included">8 Year 2 operators</td>
             </tr>
             <tr>
-                <td class="none">Not included</td>
-                <td class="none">Not included</td>
-                <td class="none">Not included</td>
+                <th class="table-subheader">(Year 3)</th>
+                <td class="none" colspan="3">Not included</td>
                 <td class="included">8 Year 3 operators</td>
-                <td class="included">8 Year 3 operators</td>
+            </tr>
+            <tr>
+                <th class="table-subheader">(Year 4)</th>
+                <td class="none" colspan="2">Not included</td>
+                <td class="included">8 Year 4 operators</td>
+                <td class="included">8 Year 4 operators</td>
             </tr>
         </tbody>
         <tbody>
             <tr>
-                <td colspan="6" class="table-toggle">* <a href="#" onclick="toggleTableSection(event, 'table-operators')">Additional information on operators</a></td>
+                <td colspan="5" class="table-toggle"><a href="#" onclick="toggleTableSection(event, 'table-operators')">Operator unlock information</a></td>
             </tr>
         </tbody>
         <tbody id="table-operators" class="table-toggleable-section">
             <tr>
-                <td colspan="6">
+                <td class="table-text" colspan="5">
                     <p>
-                        <strong>[1] Operator unlock cost:</strong><br>
-                        Original operators: 12,500 Renown or 300 R6 Credits each.<br>
-                        DLC (Year 1, 2, and 3) operators: 25,000 Renown or 600 R6 Credits each.
+                        <strong>Base operators:</strong><br>
+                        The first operator from each CTU (e.g. GIGN, FBI SWAT .etc) costs 500 Renown. The second will cost 1000, third 1500, and fourth 2000 Renown.
                     </p>
                     <p>
-                        Ubisoft estimates it takes 15 hours of play to acquire 12,500 renown. <br>The Year 1 and Year 2 operators can also be instantly unlocked in the Year 1 and Year 2 bundles for 2400 R6 Credits each (approx US$20).
+                        <strong>DLC operators:</strong><br> 
+                        Between 10,000 and 25,000 Renown depending on the operator's original release date. <br>
+                        See <a href="/operatorprices">the DLC Operator Unlock Prices page</a> for a list of operators and their current unlock prices
                     </p>
+                </td>
+            </tr>
+            <tr>
+                <td class="table-text" colspan="5">
                     <p>
-                        <strong>[2] Starter Edition operator unlocks:</strong><br>
-                        3 Attackers + 3 Defenders randomly unlocked from the following pool: <br>
-                        Attackers: Ash, Thermite, Thatcher, Fuze, Sledge.<br>
-                        Defenders: Rook, Mute, Smoke, Jager, Kapkan.
+                        Ubisoft estimates it takes 15 hours of play to acquire 12,500 Renown. <br>
+                        The Year 1 and Year 2 operators can also be instantly unlocked in the Year 1 and Year 2 bundles for 2400 R6 Credits each (approx US$20).
                     </p>
                 </td>
             </tr>
         </tbody>
         <tbody>
             <tr>
-                <th>Year 3 Season Pass</th>
-                <!--Starter Edition-->
+                <th>Year 4 Pass</th>
+                <!--Base Edition-->
                 <td class="none">Not included</td>
-                <!--Standard Edition-->
+                <!--Deluxe Edition-->
                 <td class="none">Not included</td>
-                <!--Advanced Edition-->
-                <td class="none">Not included</td>
-                <!--Gold Edition (Year 3)-->
+                <!--Gold Edition-->
                 <td class="included">Included</td>
-                <!--Complete Edition-->
+                <!--Ultimate Edition-->
                 <td class="included">Included</td>
-            </tr>
-            <tr>
-                <td colspan="6" class="table-toggle"><a href="#" onclick="toggleTableSection(event, 'table-seasonpass')">Season Pass benefits</a></td>
-            </tr>
-        </tbody>
-        <tbody id="table-seasonpass" class="table-toggleable-section">
-            <tr>
-                <th>New Year 3 operators</th>
-                <td colspan="3" class="none">Not included</td>
-                <td colspan="2" class="included">Included <br><small>with 7-day early access</small></td>
-            </tr>
-            <tr>
-                <th>Season Pass exclusive cosmetics</th>
-                <td colspan="3" class="none">Not included</td>
-                <td colspan="2">
-                    - 8 exclusive headgear and uniforms<br>
-                    - R6 Charm
-                </td>
-            </tr>
-            <tr>
-                <th>Season Pass benefits</th>
-                <td colspan="3" class="none">Not included</td>
-                <td colspan="2">
-                    - 10% discount on in-game purchases with Renown or R6 Credits<br>
-                    - 5% additional Renown earned<br>
-                    - +0.3% Alpha Pack chance
-                </td>
             </tr>
         </tbody>
         <tbody>
             <tr>
-                <th>Included R6 Credits</th>
-                <td colspan="2" class="none">Not included</td>
-                <td class="included">600 R6 Credits</td>
-                <td colspan="2" class="included">1200 R6 Credits <br><small>(inclusive of the 600 granted by the Season Pass)</small></td>
+                <td colspan="5" class="table-toggle"><a href="#" onclick="toggleTableSection(event, 'table-pass')">Year 4 Pass benefits</a></td>
             </tr>
+        </tbody>
+        <tbody id="table-pass" class="table-toggleable-section">
             <tr>
-                <th>Outbreak Packs</th>
-                <td colspan="2" class="none">Not included</td>
-                <td colspan="3" class="included">10 Outbreak Collection Packs</td>
+                <td class="table-text" colspan="5">
+                    <p>
+                        <strong>Year 4 operators</strong>: 
+                        Included, with 7-day early access
+                    </p>
+                    <p>
+                        <strong>Included R6 Credits</strong>: 
+                        600 R6 Credits
+                    </p>
+                    <p>
+                        <strong>Cosmetic items</strong>: 
+                        8 headgear and uniforms, and the Lava Six charm
+                    </p>
+                    <p>
+                        <strong>VIP membership</strong>:<br>
+                        - 10% discount on in-game purchases with Renown or R6 Credits<br>
+                        - 5% additional Renown earned<br>
+                        - +0.3% Alpha Pack chance
+                    </p>
+                </td>
             </tr>
         </tbody>
     </table>
@@ -275,36 +268,21 @@ Additional information and context are provided after the table below.
 
 ## Additional information
 
-### Differences between Starter and Standard editions
-
-The only difference between Starter and Standard editions is the unlocking of the 20 Original operators. All editions apart from Starter include the 20 Original operators, unlocked immediately. 
-
-Starter edition comes with only 6 random operators unlocked: -- 3 Attackers + 3 Defenders, randomly selected from the following pool:
-
-* Attackers: Ash, Thermite, Thatcher, Fuze, Sledge.
-* Defenders: Rook, Mute, Smoke, Jager, Kapkan. 
-
-Additional Original operators can be unlocked for 12500 Renown or 300 R6 Credits each. 
-
-DLC operators can be unlocked similar to Standard edition with 25000 Renown/600 R6 Credits each. 
-
 ### Renown and R6 Credits
 
 As you play the game, you will earn Renown. Renown can be used to unlock operators or other in-game content such as cosmetics. There is also another form of currency known as R6 Credits, which can be purchased with money. 
 
 All operators can be unlocked using Renown or R6 Credits. The number of operators unlocked out of the box depends on the edition of the game owned. 
 
-### Year 3 and the content release cycle
+### Years, seasons, and the content release cycle
 
 There are four seasons in a year, and a new season comes out approximately every 3 months. 2 operators are typically released per season. The Year 3 roadmap for Siege can be found on [the official Rainbow Six: Siege website](https://rainbow6.ubisoft.com/siege/en-us/game-info/roadmap.aspx). 
 
-Season Passes are valid only for a year. Year 3 passes will expire 31 January 2019. 
+Year Passes are valid only for a year. The Year 4 Pass will expire 31 January 2020. 
 
-### Alpha Packs and Outbreak Packs
+### Alpha Packs
 
 Alpha Packs are loot packs containing cosmetic items. Alpha Packs are earned by playing the game, or by purchasing them with Renown. With every won match, your chances of winning an Alpha Pack increases. 
-
-There are also time-limited Premium Packs. Outbreak Packs are a tyoe of premium pack, featuring [Outbreak](https://rainbow6.ubisoft.com/siege/en-us/news/152-318321-16/details-of-outbreak-event-revealed)-themed cosmetics. Premium packs can only be purchased with R6 Credits within the time period they are available.
 
 All types of packs contain only cosmetic items, and do not affect gameplay.
 
