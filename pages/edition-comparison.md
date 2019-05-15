@@ -276,7 +276,7 @@ All operators can be unlocked using Renown or R6 Credits. The number of operator
 
 ### Years, seasons, and the content release cycle
 
-There are four seasons in a year, and a new season comes out approximately every 3 months. 2 operators are typically released per season. The Year 3 roadmap for Siege can be found on [the official Rainbow Six: Siege website](https://rainbow6.ubisoft.com/siege/en-us/game-info/roadmap.aspx). 
+There are four seasons in a year, and a new season comes out approximately every 3 months. 2 operators are typically released per season. The current year roadmap for Siege can be found on [the official Rainbow Six: Siege website](https://rainbow6.ubisoft.com/siege/en-us/game-info/seasonpass.aspx). 
 
 Year Passes are valid only for a year. The Year 4 Pass will expire 31 January 2020. 
 
