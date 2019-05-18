@@ -6,6 +6,13 @@ layout: home
 title: Home
 list_title: List of Site Contents
 list_contents:
+
+    - title: Game Editions Comparison and Notes
+      date: 2019-05-18
+      url: /editions
+      category: Article
+      tags: [Editions, Starter, Standard, Advanced, Gold, Complete, Table, Base, Deluxe, Gold, Ultimate]
+
     - title: DLC Operator Unlock Prices
       date: 2019-03-06
       url: /operatorprices
@@ -31,12 +38,6 @@ list_contents:
       tags: [Pro, Challenger League, ESL, Settings, Playlist, Match, Go4]
   
 list_contents_archive:
-    - title: Game Editions Comparison and Notes
-      date: 2018-09-09
-      url: /editions
-      category: Article
-      tags: [Editions, Starter, Standard, Advanced, Gold, Complete, Table]
-
     - title: Upgrading from Starter edition
       date: 2018-12-29
       url: /starter
