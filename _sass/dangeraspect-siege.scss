@@ -74,12 +74,12 @@ $base-font-weight: 400 !default;
 $base-line-height: 2.0 !default;
 
 $text-color:       #fff !default;
-$accent-color:      #cc3311 !default;
+$accent-color:      #11aaff !default;
 
 $dark-background: rgba(0, 0, 0, 0.5);
 $subtle-color:       #cfcfcf !default;
 
-$background-image: url('/assets/images/bg_outback.jpg');
+$background-image: url('/assets/images/bg_rankedreborn.jpg');
 
 //Dark
 $background-color: scale-color($accent-color, $lightness: -95%) !default;
