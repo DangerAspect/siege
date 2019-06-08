@@ -168,7 +168,26 @@ description: A time zone converter for event time and schedules.
                 {name: '🎉 Operation Phantom Sight: Reveal Segment', venueTime: '2019-05-19T20:30'},
                 {name: '🏆 Grand Final', venueTime: '2019-05-19T21:20'}
             ]
-        }
+        },
+        "E32019": {
+            eventName: 'E3 2019',
+            venueTime: null,
+            description: 'The schedule for E3 2019! \nInformation based on Twitch\'s E3 event page at https://www.twitch.tv/events/szEF78o9Re6QXyvAa8AAnw.',
+            timeZone: 'America/Los_Angeles',
+            schedule: [
+                {name: 'EA', venueTime: '2019-06-08T09:15'},
+                {separator: true},
+                {name: 'Xbox', venueTime: '2019-06-09T13:00'},
+                {name: 'Bethesda', venueTime: '2019-06-09T17:30'},
+                {name: 'Devolver Digital', venueTime: '2019-06-09T19:00'},
+                {separator: true},
+                {name: 'PC Gaming Show', venueTime: '2019-06-10T10:00'},
+                {name: 'Ubisoft', venueTime: '2019-06-10T13:00'},
+                {name: 'Square Enix', venueTime: '2019-06-10T18:00'},
+                {separator: true},
+                {name: 'Nintendo Direct', venueTime: '2019-06-11T09:00'},
+            ]
+        },
     };
 
     function createElement(tag, className, contents){
@@ -265,6 +284,10 @@ description: A time zone converter for event time and schedules.
         scheduleElement.appendChild(container);
 
         schedule.forEach(item => {
+            if(item.separator == true){
+                container.appendChild(createElement("hr", "schedule-separator", null));
+                return;
+            }
             var scheduleMoment = moment.tz(item.venueTime, timeZone);
             var scheduleMomentLocal = moment(scheduleMoment).tz(userTimezone);
 
@@ -459,6 +482,11 @@ description: A time zone converter for event time and schedules.
     .schedule-item-countdown{
         opacity: 0.5;
         font-size: 1rem;
+    }
+    .schedule-separator{
+        display: table-row;
+        height: 2rem;
+        border: none;
     }
     @media (max-width: 640px){
         .schedule-item-time{
