@@ -192,8 +192,8 @@ description: A time zone converter for event time and schedules.
     function update(data, userTimezone){
         document.getElementById("converter").innerHTML = "";
 
-        var current = getDetectedTimezoneDetails(userTimezone);
-        var event = getMainEventDetails(data.eventName, data.venueTime, data.timeZone, userTimezone);
+        var current = getDetectedTimezoneDetails(userTimezone, data.verified);
+        var event = getMainEventDetails(data.eventName, data.venueTime, data.timeZone, userTimezone, data.description);
         var schedule = getEventSchedule(data.schedule, data.venueTime, data.timeZone, userTimezone);
 
         document.getElementById("converter").appendChild(current);
@@ -203,31 +203,43 @@ description: A time zone converter for event time and schedules.
         }
     }
 
-    function getDetectedTimezoneDetails(userTimezone){
-        var currentMoment = moment().tz(userTimezone);
-        let intro = createElement("p", "intro", `Please note: this is a public time zone converter tool. Event details are provided by the creator of the link.`);
-        let timezone = createElement("p", "current-timezone", `Using your detected time zone ${userTimezone} (${currentMoment.format(tzFormat)})`);
+    function getDetectedTimezoneDetails(userTimezone, isVerified){
         let container = createElement("div");;
-        container.appendChild(intro);
+
+        var currentMoment = moment().tz(userTimezone);
+        
+        if(!isVerified){
+            let intro = createElement("p", "intro", `Please note: this is a public time zone converter tool. Event details are provided by the creator of the link.`);
+            container.appendChild(intro);
+        }
+        
+        let timezone = createElement("p", "current-timezone", `Using your detected time zone ${userTimezone} (${currentMoment.format(tzFormat)})`);
+        
         container.appendChild(timezone);
         return container;
     }
 
-    function getMainEventDetails(eventName, venueTime, timeZone, userTimezone){
-        var eventMoment = moment.tz(venueTime, timeZone);
-        var eventMomentLocal = moment(eventMoment).tz(userTimezone);
-
+    function getMainEventDetails(eventName, venueTime, timeZone, userTimezone, description){
         var container = createElement("div", "main-event");
-
         container.appendChild(createElement("h2", "event-name", `📅 ${eventName}`));
-        container.appendChild(createElement("div", "event-time font-header", eventMomentLocal.format(timeFormat)));
 
-        var eventDate = createElement("div", "event-date", eventMomentLocal.format(dateFormat));
-        eventDate.appendChild(createElement("span", "event-timezone", ` (${eventMomentLocal.format(tzFormat)})`));
-        container.appendChild(eventDate);
+        if(description){
+            container.appendChild(createElement("p", "event-description", description));
+        }
 
-        container.appendChild(createElement("div", "event-localisation", `${eventMomentLocal.fromNow()}.`));
-        container.appendChild(createElement("div", "event-venue", `Venue time: ${eventMoment.format(fullDateFormat)}`));
+        if(venueTime != null){
+            var eventMoment = moment.tz(venueTime, timeZone);
+            var eventMomentLocal = moment(eventMoment).tz(userTimezone);
+
+            container.appendChild(createElement("div", "event-time font-header", eventMomentLocal.format(timeFormat)));
+
+            var eventDate = createElement("div", "event-date", eventMomentLocal.format(dateFormat));
+            eventDate.appendChild(createElement("span", "event-timezone", ` (${eventMomentLocal.format(tzFormat)})`));
+            container.appendChild(eventDate);
+
+            container.appendChild(createElement("div", "event-localisation", `${eventMomentLocal.fromNow()}.`));
+            container.appendChild(createElement("div", "event-venue", `Venue time: ${eventMoment.format(fullDateFormat)}`));
+        }
 
         return container;
     }
@@ -236,8 +248,15 @@ description: A time zone converter for event time and schedules.
         if(schedule == null || schedule.length === 0){
             return null;
         }
-        var eventMoment = moment.tz(venueTime, timeZone);
-        var eventMomentLocal = moment(eventMoment).tz(userTimezone);
+
+        var eventMoment = null;
+        var eventMomentLocal = null;
+
+        if(venueTime)
+        {
+            eventMoment = moment.tz(venueTime, timeZone);
+            eventMomentLocal = moment(eventMoment).tz(userTimezone);
+        }
 
         var scheduleElement = createElement("div", "schedule");
         var header = createElement("h3", null, "Schedule");
@@ -254,17 +273,35 @@ description: A time zone converter for event time and schedules.
             var scheduleTime = createElement("div", "schedule-item-time");
 
             var scheduleTimeLocal = createElement("div", "schedule-item-time-local font-header", scheduleMomentLocal.format(timeFormat));
-            scheduleTimeLocal.appendChild(createElement("span", "schedule-item-time-local-detail font-base", 
-                `${scheduleMomentLocal.calendar(eventMomentLocal, calendarDayFormat)}`));
+            if(venueTime)
+            {
+                scheduleTimeLocal.appendChild(createElement("span", "schedule-item-time-local-detail font-base", 
+                    `${scheduleMomentLocal.calendar(eventMomentLocal, calendarDayFormat)}`));
+            }
+            else{
+                scheduleTimeLocal.insertBefore(createElement("span", "schedule-item-time-local-detail font-base", 
+                    `${scheduleMomentLocal.format(shortDateFormat)} at `), scheduleTimeLocal.childNodes[0]);
+            }
             scheduleTime.appendChild(scheduleTimeLocal);
             
-            var scheduleTimeVenue = createElement("div", "schedule-item-time-venue", `Venue time: ${scheduleMoment.format(timeFormat)}`);
-            scheduleTimeVenue.appendChild(createElement("span", "schedule-item-time-venue-detail font-base", 
-                `${scheduleMoment.calendar(eventMoment, calendarDayFormat)}`));
+            var scheduleTimeVenue = null;
+            if(venueTime)
+            {
+                scheduleTimeVenue = createElement("div", "schedule-item-time-venue", `Venue time: ${scheduleMoment.format(timeFormat)}`);
+                scheduleTimeVenue.appendChild(createElement("span", "schedule-item-time-venue-detail font-base", 
+                    `${scheduleMoment.calendar(eventMoment, calendarDayFormat)}`));
+            }
+            else
+            {
+                scheduleTimeVenue = createElement("div", "schedule-item-time-venue", `Venue: ${scheduleMoment.format(`${shortDateFormat}[,] ${timeFormat} [(]${tzFormat}[)]`)}`);
+            }
             scheduleTime.appendChild(scheduleTimeVenue);
             
             scheduleItem.appendChild(scheduleTime);
-            scheduleItem.appendChild(createElement("div", "schedule-item-name", item.name));
+            
+            let scheduleName = createElement("div", "schedule-item-name", item.name);
+            scheduleName.appendChild(createElement("div", "schedule-item-countdown", `${scheduleMoment.fromNow()}`));
+            scheduleItem.appendChild(scheduleName);
 
             container.appendChild(scheduleItem);
         });
@@ -285,6 +322,8 @@ description: A time zone converter for event time and schedules.
         //Pre-set events
         if(hash != null && hash in presetEvents){
             data = presetEvents[hash];
+            // Indicates data is read from page rather than a provided pipe-separated hash
+            data.verified = true;
         }
 
         // JSON + EncodeURIComponent 
@@ -362,6 +401,10 @@ description: A time zone converter for event time and schedules.
     }
 
     /*Event details*/
+    .event-description{
+        margin-top: 0;
+        margin-bottom: 1rem;
+    }
     .event-time{
         font-size: 3rem;
         line-height: 1.0;
@@ -402,7 +445,7 @@ description: A time zone converter for event time and schedules.
         font-size: 2rem;
     }
     .schedule-item-time-venue{
-        opacity: 0.5;
+        opacity: 0.25;
     }
     .schedule-item-time-local span, .schedule-item-time-venue span{
         font-size: 1rem;
@@ -412,6 +455,10 @@ description: A time zone converter for event time and schedules.
         font-size: 1.5rem;
         width: 100%;
         padding-bottom: 0.5rem;
+    }
+    .schedule-item-countdown{
+        opacity: 0.5;
+        font-size: 1rem;
     }
     @media (max-width: 640px){
         .schedule-item-time{
