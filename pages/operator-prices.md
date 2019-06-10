@@ -7,7 +7,7 @@ description: "An up-to-date graphic showing DLC operator unlock prices, effectiv
 
 This graphic shows the unlock prices for DLC operators, following the [Operator Lifecycle](#operator-lifecycle) which will be introduced starting Year 4 Season 1.
 
-[![Graphics on DLC Operator Unlock Prices](/assets/images/operator-prices/OperatorPrices.png)](/assets/images/operator-prices/OperatorPrices.png)
+[![Graphics on DLC Operator Unlock Prices](/assets/images/operator-prices/OperatorPricesY4S2.png)](/assets/images/operator-prices/OperatorPricesY4S2.png)
 
 ### Operator Lifecycle
 
@@ -23,7 +23,8 @@ The Operator Lifecycle is a way to make post-launch operators more accessible to
 
 ### Changelog and credits
 
-* **Y4S1 / Revision 3**: Add conversion between R6 Credits and Renown
+* **Y4S2 / Revision 1**: Updated graphic for Y4S2. Simplified next price drop phrasing, added a description of the Operator Lifecycle. 
+* [Y4S1 / Revision 3](assets/images/operator-prices/OperatorPricesY4S1.png): Add conversion between R6 Credits and Renown
 * Y4S1 / Revision 2: GIS operators incorrectly listed as GIGR
 * Y4S1 / Revision 1: Initial release
 
