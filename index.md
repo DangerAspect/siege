@@ -36,6 +36,12 @@ list_contents:
       url: /playlist
       category: Tool
       tags: [Pro, Challenger League, ESL, Settings, Playlist, Match, Go4]
+    
+    - title: Kafe Rework maps
+      date: 2019-06-20
+      url: /pages/kafe-rework
+      category: Resource
+      tags: []
   
 list_contents_archive:
     - title: Upgrading from Starter edition
