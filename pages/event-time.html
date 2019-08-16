@@ -188,6 +188,46 @@ description: A time zone converter for event time and schedules.
                 {name: 'Nintendo Direct', venueTime: '2019-06-11T09:00'},
             ]
         },
+        "SixMajorRaleigh/1": {
+            eventName: 'Raleigh Major 2019: Day 1',
+            venueTime: '2019-08-16T09:00',
+            description: '<a href="#SixMajorRaleigh/1">Day 1</a> / <a href="#SixMajorRaleigh/2">Day 2</a> / <a href="#SixMajorRaleigh/3">Day 3</a>. Times are estimates based on match length and may change. Watch on <a href="https://www.twitch.tv/rainbow6">Twitch</a>!',
+            timeZone: 'America/New_York',
+            schedule: [
+                {name: 'Opening Ceremony', venueTime: '2019-08-16T09:00'},
+                {name: '🏅 Quarter Final 1', venueTime: '2019-08-16T10:00'},
+                {name: '🏅 Quarter Final 2', venueTime: '2019-08-16T13:00'},
+                {name: '🏅 Quarter Final 3', venueTime: '2019-08-16T16:00'},
+                {name: '🏅 Quarter Final 4', venueTime: '2019-08-16T19:00'},
+                {name: 'Daily Wrap-up', venueTime: '2019-08-16T22:20'}
+            ]
+        },
+        "SixMajorRaleigh/2": {
+            eventName: 'Raleigh Major 2019: Day 2',
+            venueTime: '2019-08-17T10:30',
+            description: '<a href="#SixMajorRaleigh/1">Day 1</a> / <a href="#SixMajorRaleigh/2">Day 2</a> / <a href="#SixMajorRaleigh/3">Day 3</a>. Times are estimates based on match length and may change. Watch on <a href="https://www.twitch.tv/rainbow6">Twitch</a>!',
+            timeZone: 'America/New_York',
+            schedule: [
+                {name: 'Pre-show', venueTime: '2019-08-17T10:30'},
+                {name: '🏅 Showmatch', venueTime: '2019-08-17T11:00'},
+                {name: '🏅 Semi Final 1', venueTime: '2019-08-17T12:30'},
+                {name: '🏅 Semi Final 2', venueTime: '2019-08-17T15:30'},
+                {name: 'Daily Wrap-up', venueTime: '2019-08-17T22:20'}
+            ]
+        },
+        "SixMajorRaleigh/3": {
+            eventName: 'Raleigh Major 2019: Day 3',
+            venueTime: '2019-08-18T10:30',
+            description: '<a href="#SixMajorRaleigh/1">Day 1</a> / <a href="#SixMajorRaleigh/2">Day 2</a> / <a href="#SixMajorRaleigh/3">Day 3</a>. Times are estimates based on match length and may change. Watch on <a href="https://www.twitch.tv/rainbow6">Twitch</a>!',
+            timeZone: 'America/New_York',
+            schedule: [
+                {name: 'Opening Ceremony', venueTime: '2019-08-18T10:30'},
+                {name: '🏅 Showmatch', venueTime: '2019-08-18T11:00'},
+                {name: '🎉 Operation Ember Rise Reveal and Esports Panel', venueTime: '2019-08-18T13:30'},
+                {name: '🏅 Grand Final  ', venueTime: '2019-08-18T14:30'},
+                {name: 'Closing Ceremony', venueTime: '2019-08-18T19:30'}
+            ]
+        },
     };
 
     function createElement(tag, className, contents){
@@ -243,7 +283,9 @@ description: A time zone converter for event time and schedules.
         container.appendChild(createElement("h2", "event-name", `📅 ${eventName}`));
 
         if(description){
-            container.appendChild(createElement("p", "event-description", description));
+            var desc = createElement("p", "event-description")
+            desc.innerHTML = description;
+            container.appendChild(desc);
         }
 
         if(venueTime != null){
