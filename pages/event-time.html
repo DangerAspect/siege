@@ -243,9 +243,25 @@ description: A time zone converter for event time and schedules.
 
     function showError(message){
         document.getElementById("converter").innerHTML = "";
-        console.log(message);
         let errorMessage = createElement("p", "error-message font-header", message);
         document.getElementById("converter").appendChild(errorMessage);
+    }
+
+    function listEvents(){
+        document.getElementById("converter").appendChild(createElement("hr"));
+
+        document.getElementById("converter").appendChild(createElement("p", "helper-message", "Are you looking for any of these?"));
+        let eventList = createElement("p", "helper-message event-list", "");
+        document.getElementById("converter").appendChild(eventList);
+        
+        for (const event of Object.keys(presetEvents).reverse()) {
+            console.log(presetEvents[event]);
+            let e = createElement("a", "event-list-item", presetEvents[event].eventName);
+            e.href = `#${event}`
+            eventList.append(e);
+            eventList.append(document.createTextNode(" / "));
+        }
+        console.log(presetEvents);
     }
 
     function update(data, userTimezone){
@@ -432,6 +448,7 @@ description: A time zone converter for event time and schedules.
         }
         else{
                 showError("There is no information to show.");
+                listEvents();
         }
 
         // Guess user time zone
