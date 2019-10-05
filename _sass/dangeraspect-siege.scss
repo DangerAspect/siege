@@ -306,6 +306,9 @@ table{
 }
 select, input[type=text], input[type=date], input[type=time]{
     @include form-control();
+    &::placeholder{
+        color: rgba($text-color, 0.5);
+    }
 }
 select{
     height: $grid-unit;
