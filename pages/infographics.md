@@ -5,7 +5,17 @@ permalink: /infographics
 description: "A collection of Siege-related infographics."
 ---
 
-A collection of Siege-related infographics.
+Infographics I create will be listed here! 
+
+These were originally created for the Rainbow Six Discord, although the Rainbow Six community team has shared them on Twitter [before](https://twitter.com/Rainbow6Game/status/1172260600996605952) [too](https://twitter.com/Rainbow6Game/status/1103385513900285953). 
+
+### Contents
+
+* [Casual Map Pool](#casual-map-pool)
+* [Ranked and Unranked Map Pool](#ranked-and-unranked-map-pool)
+* [Unlock Prices for Post-Launch Operators](#unlock-prices-for-post-launch-operators)
+
+-----
 
 ## Casual Map Pool
 
@@ -22,3 +32,9 @@ A collection of Siege-related infographics.
 ### Changelog and credits
 
 * **Y4S3 / Revision 1**: Initial release.
+
+## Unlock Prices for Post-Launch Operators
+
+[![Unlock Prices for Post-Launch Operators](/assets/images/operator-prices/OperatorPricesY4S3.jpg)](/assets/images/operator-prices/OperatorPricesY4S3.jpg)
+
+You can find [more information, context, and details on this page](/operatorprices).

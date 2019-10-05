@@ -6,14 +6,14 @@ layout: home
 title: Home
 list_title: List of Site Contents
 list_contents:
+    
+    - title: Infographics (Current map pools)
+      date: 2019-09-11
+      url: /infographics
+      category: Resource
+      tags: [infographic, map, pool, casual, unranked, ranked]
 
-    - title: Game Editions Comparison and Notes
-      date: 2019-05-18
-      url: /editions
-      category: Article
-      tags: [Editions, Starter, Standard, Advanced, Gold, Complete, Table, Base, Deluxe, Gold, Ultimate]
-
-    - title: DLC Operator Unlock Prices
+    - title: Post-Launch Operator Unlock Prices
       date: 2019-03-06
       url: /operatorprices
       category: Infographic
@@ -24,6 +24,12 @@ list_contents:
       url: /sights
       category: Tool
       tags: [Sights, Scopes, Holographic, Reflex, Red, Dot]
+
+    - title: Game Editions Comparison and Notes
+      date: 2019-05-18
+      url: /editions
+      category: Article
+      tags: [Editions, Starter, Standard, Advanced, Gold, Complete, Table, Base, Deluxe, Gold, Ultimate]
     
     - title: Event Time Converter
       date: 2018-11-21
@@ -36,12 +42,6 @@ list_contents:
       url: /playlist
       category: Tool
       tags: [Pro, Challenger League, ESL, Settings, Playlist, Match, Go4]
-    
-    - title: Kafe Rework maps
-      date: 2019-06-20
-      url: /pages/kafe-rework
-      category: Resource
-      tags: []
   
 list_contents_archive:
     - title: Upgrading from Starter edition
