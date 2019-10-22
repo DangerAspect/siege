@@ -19,19 +19,21 @@ These were originally created for the Rainbow Six Discord, although the Rainbow 
 
 ## Casual Map Pool
 
-[![Casual Map Pool](/assets/images/infographics/MapRotation-Casual-Y4S3.0.jpg)](/assets/images/infographics/MapRotation-Casual-Y4S3.0.jpg)
+[![Casual Map Pool](/assets/images/infographics/MapRotation-Casual-Y4S3.3.jpg)](/assets/images/infographics/MapRotation-Casual-Y4S3.3.jpg)
 
 ### Changelog and credits
 
-* **Y4S3 / Revision 1**: Initial release.
+* **Y4S3 / Revision 2**: Updated for Y4S3.3 rotation. Improved map image layout to make them easier to recognise.
+* [**Y4S3 / Revision 1**](/assets/images/infographics/MapRotation-Casual-Y4S3.0.jpg): Initial release.
 
 ## Ranked and Unranked Map Pool
 
-[![Ranked and Unranked Map Pool](/assets/images/infographics/MapRotation-Ranked-Y4S3.jpg)](/assets/images/infographics/MapRotation-Ranked-Y4S3.jpg)
+[![Ranked and Unranked Map Pool](/assets/images/infographics/MapRotation-Ranked-Y4S3-2.jpg)](/assets/images/infographics/MapRotation-Ranked-Y4S3-2.jpg)
 
 ### Changelog and credits
 
-* **Y4S3 / Revision 1**: Initial release.
+* **Y4S3 / Revision 2**: Improved map image layout to make them easier to recognise.
+* [**Y4S3 / Revision 1**](/assets/images/infographics/MapRotation-Ranked-Y4S3.jpg): Initial release.
 
 ## Unlock Prices for Post-Launch Operators
 
