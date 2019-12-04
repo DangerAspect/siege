@@ -11,32 +11,34 @@ These were originally created for the Rainbow Six Discord, although the Rainbow 
 
 ### Contents
 
-* [Casual Map Pool](#casual-map-pool)
+* [Quick Match Map Pool](#quick-match-map-pool)
 * [Ranked and Unranked Map Pool](#ranked-and-unranked-map-pool)
 * [Unlock Prices for Post-Launch Operators](#unlock-prices-for-post-launch-operators)
 
 -----
 
-## Casual Map Pool
+## Quick Match Map Pool
 
-[![Casual Map Pool](/assets/images/infographics/MapRotation-Casual-Y4S3.3.jpg)](/assets/images/infographics/MapRotation-Casual-Y4S3.3.jpg)
+[![Quick Match Map Pool](/assets/images/infographics/MapRotation-Casual-Y4S4.0.jpg)](/assets/images/infographics/MapRotation-Casual-Y4S4.0.jpg)
 
 ### Changelog and credits
 
-* **Y4S3 / Revision 2**: Updated for Y4S3.3 rotation. Improved map image layout to make them easier to recognise.
-* [**Y4S3 / Revision 1**](/assets/images/infographics/MapRotation-Casual-Y4S3.0.jpg): Initial release.
+* [**Y4S4 / Revision 1**](/assets/images/infographics/MapRotation-Casual-Y4S4.0.jpg): Updated for Y4S4 rotation.
+* [Y4S3 / Revision 2](/assets/images/infographics/MapRotation-Casual-Y4S3.3.jpg): Updated for Y4S3.3 rotation. Improved map image layout to make them easier to recognise.
+* [Y4S3 / Revision 1](/assets/images/infographics/MapRotation-Casual-Y4S3.0.jpg): Initial release.
 
 ## Ranked and Unranked Map Pool
 
-[![Ranked and Unranked Map Pool](/assets/images/infographics/MapRotation-Ranked-Y4S3-2.jpg)](/assets/images/infographics/MapRotation-Ranked-Y4S3-2.jpg)
+[![Ranked and Unranked Map Pool](/assets/images/infographics/MapRotation-Ranked-Y4S4.jpg)](/assets/images/infographics/MapRotation-Ranked-Y4S4.jpg)
 
 ### Changelog and credits
 
-* **Y4S3 / Revision 2**: Improved map image layout to make them easier to recognise.
-* [**Y4S3 / Revision 1**](/assets/images/infographics/MapRotation-Ranked-Y4S3.jpg): Initial release.
+* [**Y4S4 / Revision 1**](/assets/images/infographics/MapRotation-Ranked-Y4S4.jpg): Improved map image layout to make them easier to recognise.
+* [Y4S3 / Revision 2](/assets/images/infographics/MapRotation-Ranked-Y4S3-2.jpg): Improved map image layout to make them easier to recognise.
+* [Y4S3 / Revision 1](/assets/images/infographics/MapRotation-Ranked-Y4S3.jpg): Initial release.
 
 ## Unlock Prices for Post-Launch Operators
 
-[![Unlock Prices for Post-Launch Operators](/assets/images/operator-prices/OperatorPricesY4S3.jpg)](/assets/images/operator-prices/OperatorPricesY4S3.jpg)
+[![Unlock Prices for Post-Launch Operators](/assets/images/operator-prices/OperatorPricesY4S4.jpg)](/assets/images/operator-prices/OperatorPricesY4S4.jpg)
 
 You can find [more information, context, and details on this page](/operatorprices).
