@@ -19,11 +19,12 @@ These were originally created for the Rainbow Six Discord, although the Rainbow 
 
 ## Quick Match Map Pool
 
-[![Quick Match Map Pool](/assets/images/infographics/MapRotation-Casual-Y4S4.0.jpg)](/assets/images/infographics/MapRotation-Casual-Y4S4.0.jpg)
+[![Quick Match Map Pool](/assets/images/infographics/MapRotation-QuickMatch-Y4S4.3.jpg)](/assets/images/infographics/MapRotation-QuickMatch-Y4S4.3.jpg)
 
 ### Changelog and credits
 
-* [**Y4S4 / Revision 1**](/assets/images/infographics/MapRotation-Casual-Y4S4.0.jpg): Updated for Y4S4 rotation.
+* [**Y4S4.3 / Revision 1**](/assets/images/infographics/MapRotation-QuickMatch-Y4S4.3.jpg): Updated for Y4S4.3 patch. Updated explanation text, fixed map pool link, added patch date.
+* [Y4S4 / Revision 1](/assets/images/infographics/MapRotation-Casual-Y4S4.0.jpg): Updated for Y4S4 rotation.
 * [Y4S3 / Revision 2](/assets/images/infographics/MapRotation-Casual-Y4S3.3.jpg): Updated for Y4S3.3 rotation. Improved map image layout to make them easier to recognise.
 * [Y4S3 / Revision 1](/assets/images/infographics/MapRotation-Casual-Y4S3.0.jpg): Initial release.
 
