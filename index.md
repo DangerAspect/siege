@@ -1,9 +1,34 @@
 ---
-# You don't need to edit this file, it's empty on purpose.
-# Edit theme's home layout instead if you wanna make some changes
-# See: https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 layout: home
 title: Home
+
+welcome: "Welcome to DangerAspect/Siege"
+description: "A fan site featuring various guides and tools for Rainbow Six: Siege."
+
+links:
+  - title: "**Current map pool** infographics"
+    link: "/infographics"
+    description: "Current Ranked and Quick Match map pools"
+
+  - title: "**Post-launch operator** unlock prices"
+    link: "/operatorprices"
+    description: "Up-to-date DLC operator unlock prices"
+
+  - title: "**Weapon sights** comparison tool"
+    link: "/sights"
+    description: "Compare all 1x weapon sight attachments"
+
+  - title: "**Event time converter**"
+    link: "/event-time"
+    description: "Get event times in your local time zone"
+
+  - section: ...and more
+
+  - title: Sitemap
+    link: "/sitemap"
+    description: "List of all content on this site"
+
+
 list_title: List of Site Contents
 list_contents:
     
@@ -51,9 +76,3 @@ list_contents_archive:
       tags: [Editions, Starter, Upgrade]
 
 ---
-
-<p class="lead">
-    Welcome to <span class="logo">DangerAspect/<span class="game">SIEGE</span></span>, a community-run site featuring various guides and tools for Rainbow Six: Siege. 
-</p>
-
-<a href="#content-list" class="button narrow home-call-to-action">Browse content</a>
