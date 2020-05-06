@@ -3,6 +3,7 @@ layout: page
 title:  Competitive Custom Game Playlist Settings
 permalink: /playlist
 description: "A collection of playlist settings for custom competitive games for Rainbow Six Siege."
+wide: true
 ---
 
 This page contains playlist settings and instructions for several popular/notable leagues in the Rainbow Six esports scene.
