@@ -3,8 +3,11 @@ layout: page
 title:  Competitive Custom Game Playlist Settings
 permalink: /playlist
 description: "A collection of playlist settings for custom competitive games for Rainbow Six Siege."
-wide: true
+date: 2019-01-02
+tag: article
 ---
+
+{% include outdated.html %}
 
 This page contains playlist settings and instructions for several popular/notable leagues in the Rainbow Six esports scene.
 
@@ -31,3 +34,5 @@ In short, most notable leagues use similar settings, with differences in overtim
 4. Once you are done, click **Duplicate this Match**, change the map selection to the second map of the pool. Repeat for the remaining maps in the pool. 
 
 5. Once all maps are added, click Save Playlist. 
+
+{% include article-info.html %}
