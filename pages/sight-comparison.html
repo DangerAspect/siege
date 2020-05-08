@@ -50,19 +50,15 @@ image: /assets/images/sight-comparison/thumb.png
         mix-blend-mode: lighten;
     }
 
-    @media screen and (min-width: 1200px){
-        .comparison-options{
-            display: flex;
-        }
-        .comparison-category{
-            flex: auto;
-            width: auto;
-        }
-        #comparison-options-outlines{
-            padding-left: 24px;
-            width: 348px;
-            flex: initial;
-        }
+    .comparison-options{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .comparison-category{
+        flex: auto;
+    }
+    #comparison-options-outlines{
+        width: 24rem;
     }
 </style>
 
@@ -75,7 +71,7 @@ image: /assets/images/sight-comparison/thumb.png
 <link rel="prefetch" href="/assets/images/sight-comparison/ru-reflex.jpg">
 
 <!-- Embed SVG document after the doctype -->
-<div id="comparison-preview">
+<div id="comparison-preview" class="full-width">
     {% capture svg %}
     {% include sight-comparison/sights.svg %}
     {% endcapture %}
@@ -120,12 +116,12 @@ image: /assets/images/sight-comparison/thumb.png
         <label for="comparison-toggle-nato-holographic">
             <div>Holographic</div>
         </label>
-
+        <br>
         <input type="checkbox" id="comparison-toggle-nato-reddot" value="nato-reddot" onchange="toggleLayer(this.value, this.checked)">
         <label for="comparison-toggle-nato-reddot">
             <div>Red Dot</div>
         </label>
-
+        <br>
         <input type="checkbox" id="comparison-toggle-nato-reflex" value="nato-reflex" onchange="toggleLayer(this.value, this.checked)">
         <label for="comparison-toggle-nato-reflex">
             <div>Reflex</div>
@@ -136,12 +132,12 @@ image: /assets/images/sight-comparison/thumb.png
         <label for="comparison-toggle-ru-holographic">
             <div>Holographic</div>
         </label>
-
+        <br>
         <input type="checkbox" id="comparison-toggle-ru-reddot" value="ru-reddot" onchange="toggleLayer(this.value, this.checked)">
         <label for="comparison-toggle-ru-reddot">
             <div>Red Dot</div>
         </label>
-
+        <br>
         <input type="checkbox" id="comparison-toggle-ru-reflex" value="ru-reflex" onchange="toggleLayer(this.value, this.checked)">
         <label for="comparison-toggle-ru-reflex">
             <div>Reflex</div>
