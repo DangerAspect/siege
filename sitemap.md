@@ -28,22 +28,51 @@ list_contents:
     - url: /playlist
       category: Tool
       tags: [Pro, Challenger League, ESL, Settings, Playlist, Match, Go4]
-  
-list_contents_archive:
+
     - url: /starter
       category: Article
       tags: [Editions, Starter, Upgrade]
 
 ---
 
+## Tools
+
 <ul class="link-collection">
-  {% for page in page.list_contents %}
+  {% assign pages = site.pages | sort:"date" | reverse %}
+  {% for page in pages %}
+  {% if page.tag == "tool" %}
   {% assign item = site.pages | where: "url", page.url | first %}
     <li class="link">
       <a href="{{ item.url }}">
         <div class="link-title">{{ item.title }}</div>
-        <div class="link-description">{{ item.description }}</div>
+        <div class="link-description">
+          {{ item.description }}
+          <br>
+          Last updated: {{ item.date | date_to_string}}
+        </div>
       </a>
     </li>
+    {% endif %}
+  {% endfor %}
+</ul>
+
+## Articles
+
+<ul class="link-collection">
+  {% assign pages = site.pages | sort:"date" | reverse %}
+  {% for page in pages %}
+  {% if page.tag == "article" %}
+  {% assign item = site.pages | where: "url", page.url | first %}
+    <li class="link">
+      <a href="{{ item.url }}">
+        <div class="link-title">{{ item.title }}</div>
+        <div class="link-description">
+          {{ item.description }}
+          <br>
+          Last updated: {{ item.date | date_to_string}}
+        </div>
+      </a>
+    </li>
+    {% endif %}
   {% endfor %}
 </ul>
