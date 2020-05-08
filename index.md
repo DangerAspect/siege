@@ -22,57 +22,10 @@ links:
     link: "/event-time"
     description: "Get event times in your local time zone"
 
-  - section: ...and more
+  - section: Other pages
 
   - title: Sitemap
     link: "/sitemap"
-    description: "List of all content on this site"
-
-
-list_title: List of Site Contents
-list_contents:
-    
-    - title: Infographics (Current map pools)
-      date: 2019-09-11
-      url: /infographics
-      category: Resource
-      tags: [infographic, map, pool, casual, unranked, ranked]
-
-    - title: Post-Launch Operator Unlock Prices
-      date: 2019-03-06
-      url: /operatorprices
-      category: Infographic
-      tags: [DLC, Post, launch, operators, Price, Unlock, Renown]
-
-    - title: Comparison of Weapon Sights
-      date: 2018-09-09
-      url: /sights
-      category: Tool
-      tags: [Sights, Scopes, Holographic, Reflex, Red, Dot]
-
-    - title: Game Editions Comparison and Notes
-      date: 2019-05-18
-      url: /editions
-      category: Article
-      tags: [Editions, Starter, Standard, Advanced, Gold, Complete, Table, Base, Deluxe, Gold, Ultimate]
-    
-    - title: Event Time Converter
-      date: 2018-11-21
-      url: /event-time
-      category: Tool
-      tags: [TZ, Time, Zone, Timezone, Converter]
-    
-    - title: Competitive Custom Game Playlist Settings
-      date: 2018-11-21
-      url: /playlist
-      category: Tool
-      tags: [Pro, Challenger League, ESL, Settings, Playlist, Match, Go4]
-  
-list_contents_archive:
-    - title: Upgrading from Starter edition
-      date: 2018-12-29
-      url: /starter
-      category: Article
-      tags: [Editions, Starter, Upgrade]
+    description: "All content on this site, including older, possibly outdated pages"
 
 ---
