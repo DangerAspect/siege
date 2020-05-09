@@ -4,7 +4,11 @@ title:  Game Editions Comparison and Notes
 permalink: /editions
 description: "A detailed comparison of the various editions available when purchasing Rainbow Six: Siege."
 image: /assets/images/covers/standard.jpg
+date: 2019-05-15
+tag: article
 ---
+
+{% include outdated.html %}
 
 <style>
     table{
@@ -286,3 +290,4 @@ Alpha Packs are loot packs containing cosmetic items. Alpha Packs are earned by 
 
 All types of packs contain only cosmetic items, and do not affect gameplay.
 
+{% include article-info.html %}

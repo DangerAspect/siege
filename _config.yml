@@ -23,15 +23,18 @@ github_username:  dangeraspect
 header_pages:
   - index.md
   - about.md
+  - sitemap.md
 
 permalink: pretty
 
 # Build settings
 markdown: kramdown
+
+remote_theme: joeyfoo/slate
 # theme: minima
-plugins:
-  - jekyll-feed
-  - jekyll-seo-tag
+# plugins:
+#   - jekyll-feed
+#   - jekyll-seo-tag
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list

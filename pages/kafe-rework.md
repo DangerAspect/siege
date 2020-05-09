@@ -2,7 +2,11 @@
 layout: page
 title: Kafe Rework maps
 description: "Top-down maps of the Kafe Rework, taken from the operation asset pack"
+date: 2019-10-05
+tag: article
 ---
+
+{% include outdated.html %}
 
 <p class="important"><strong>Note:</strong> Please note that official floorplans are now available for all maps on the <a href="https://rainbow6.ubisoft.com/siege/en-us/game-info/maps.aspx">Rainbow Six website</a>.</p>
 
@@ -25,3 +29,5 @@ This page contains top-down maps of the reworked Kafe, as available in the Opera
 ## Roof
 
 [![Kafe Rework, Roof map](/assets/images/kafe-rework/kafe-rework-roof.jpg)](/assets/images/kafe-rework/kafe-rework-roof.jpg)
+
+{% include article-info.html %}

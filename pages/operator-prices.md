@@ -3,6 +3,8 @@ layout: page
 title:  Unlock Prices for Post-Launch Operators
 permalink: /operatorprices
 description: "An up-to-date graphic showing DLC operator unlock prices, effective Year 4 Season 1."
+date: 2020-03-11
+tag: article
 ---
 
 This graphic shows the unlock prices for DLC operators, following the [Operator Lifecycle](#operator-lifecycle) which will be introduced starting Year 4 Season 1.
@@ -33,3 +35,4 @@ The Operator Lifecycle is a way to make post-launch operators more accessible to
 
 Operator icons from [marcopixel.eu/r6-operatoricons](https://marcopixel.eu/r6-operatoricons/) and available under the CC BY 4.0 license.
 
+{% include article-info.html %}

@@ -3,7 +3,11 @@ layout: page
 title:  Upgrading from Starter edition
 permalink: /starter
 description: "You can't upgrade from Starter Edition directly, so here are your options."
+date: 2019-02-13
+tag: article
 ---
+
+{% include outdated.html %}
 
 <p class="important"><strong>OUTDATED</strong>: Ubisoft has announced <a href="https://rainbow6.ubisoft.com/siege/en-us/news/152-344167-16/rainbow-six-siege-year-4-editions-launching-february-12">updated game editions for Year 4, including the removal of Starter Edition.</a> </p>
 
@@ -47,3 +51,5 @@ Assuming both options seem unappealing, why not try sticking with Starter editio
 There are other options for acquiring more operators for the game, for example purchasing DLC Operator Bundles. These bundles unlock all 8 DLC Operators from that specific year. They cost 2400 R6 Credits each, with the Year 1 bundle on discount until 4 March 2019 for 1440 R6 Credits.
 
 Doing so, combined with unlocking targeted operators with either saved Renown or purchased R6 Credits, may provide you with a sufficient range of operators to choose from when playing. 
+
+{% include article-info.html %}
