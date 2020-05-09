@@ -5,33 +5,49 @@ permalink: /event-time
 description: A time zone converter for event time and schedules. 
 date: 2020-05-09
 tag: tool
-
-parent:
-  title: Event Time Converter
-  link: #
 ---
 
 <script src="/assets/scripts/moment.min.js"></script>
-<script src="/assets/scripts/moment-timezone-with-data-2012-2022.min.js"></script>
+<script src="/assets/scripts/moment-timezone-with-data-10-year-range.min.js"></script>
 
 <div id="converter">
 </div>
 
 <hr>
 
-<h2>About this converter</h2>
+<h2 class="about">About this converter</h2>
 
 <p>
-    This tool converts a provided event time into local time for the user.
+    This tool allows you to share an event's time and schedule, in the user's own time zone.
+</p>
+
+<h3>How it works</h3>
+
+<p>
+    Event information is encoded in URL hash (the part after the #).
 </p>
 <p>
-    Event information is provided in the URL hash (the part after the #) in the form 
-    of pipe-separated values. You can use <a href="/event-time/editor">the editor</a> to create your own links. 
+    There are two forms the hash may be in: 
 </p>
+<ul>
+    <li>
+        <strong>Pipe-separated values</strong>: (e.g. <a href="#This%20is an example event!|2020-01-01T12:00|Asia/Singapore">this link</a>)<br>
+        All information are stored in the URL hash in the form of pipe-separated values.<br>
+        You can use the <a href="/event-time/editor">the editor</a> to create your own links.
+    </li>
+    <li>
+        <strong>Aliases</strong>: (e.g. <a href="#Y5S1">#Y5S1</a>)<br>
+        Event details for these are retrieved from the <a href="https://github.com/DangerAspect/event-time-data">event-time-date repository</a>.<br>
+        Only collaborators with write access to that repository are able to use this.
+
+    </li>
+</ul>
+
+<h3>Daylight Saving Time</h3>
 <p>
-    If provided with the correct event locale data, this tool should automatically take into 
+    If provided with the correct event time zone, this tool should automatically take into 
     account Daylight Saving Times. This tool uses <a href="https://momentjs.com/timezone/">Moment Timezone</a> 
-    containing data for years between 2012 and 2022. 
+    containing data from around 2015 to 2025. 
 </p>
 
 <!-- Scripts and styling go below this line! -->
@@ -52,245 +68,21 @@ parent:
         sameElse: ` on ${shortDateFormat}`
     };
 
-    // Pre-set events
-    var presetEvents = {
-        "PL_Season8_Day1": {
-            eventName: 'Rainbow Six Pro League Season 8 Finals',
-            venueTime: '2018-11-17T10:45:00',
-            timeZone: 'America/Sao_Paulo',
-            schedule: [
-                {name: 'Match 1', venueTime: '2018-11-17T11:00:00'},
-                {name: 'Match 2', venueTime: '2018-11-17T13:30:00'},
-                {name: 'Match 3', venueTime: '2018-11-17T15:00:00'},
-                {name: 'Match 4', venueTime: '2018-11-17T16:30:00'}
-            ]
-        }, 
-        "Y3S4_TS": {
-            eventName: 'Test Server Deployment of Operation Wind Bastion',
-            venueTime: '2018-11-20T13:30',
-            timeZone: 'Canada/Eastern',
-            schedule: null
-        },
-        "BonusRenown_20181201": {
-            eventName: 'Bonus Renown Event',
-            venueTime: '2018-12-01T12:01',
-            timeZone: 'Canada/Eastern',
-            schedule: [
-                {name: 'Renown boost starts', venueTime: '2018-12-01T12:01'},
-                {name: 'Renown boost ends', venueTime: '2018-12-02T12:01'}
-            ]
-        },
-        "Y3S4": {
-            eventName: 'Deployment of Operation Wind Bastion',
-            venueTime: '2018-12-04T09:00',
-            timeZone: 'Canada/Eastern',
-            schedule: [
-                {name: 'Maintenance on PC (for 1 hour)', venueTime: '2018-12-04T09:00'},
-                {name: 'Maintenance on PS4 (for 1 hour)', venueTime: '2018-12-04T10:00'},
-                {name: 'Maintenance on XB1 (for 1 hour)', venueTime: '2018-12-04T11:00'}
-            ]
-        },
-        "Y3S4.2": {
-            eventName: 'Deployment of Y3S4.2 patch',
-            venueTime: '2019-02-05T09:00',
-            timeZone: 'Canada/Eastern',
-            schedule: [
-                {name: 'PC deployment (lasting 30 minutes)', venueTime: '2019-02-05T09:00'},
-                {name: 'PS4 deployment (lasting 30 minutes)', venueTime: '2019-02-06T09:00'},
-                {name: 'XB1 deployment (lasting 30 minutes)', venueTime: '2019-02-06T10:00'}
-            ]
-        },
-        "FreeWeekend_201902": {
-            eventName: 'Free weekend (Feb 2019)',
-            venueTime: '2019-02-14T09:00',
-            timeZone: 'US/Pacific',
-            schedule: [
-                {name: 'Preload available\n\n\n', venueTime: '2019-02-12T09:00'},
-                {name: 'Free Weekend starts', venueTime: '2019-02-14T09:00'},
-                {name: 'Free Weekend ends', venueTime: '2019-02-17T12:00'}
-            ]
-        },
-        "SI2019_Finals": {
-            eventName: 'Six Invitational 2019: Main Event Day 3',
-            venueTime: '2019-02-17T11:30',
-            timeZone: 'Canada/Eastern',
-            schedule: [
-                {name: '🎀 Opening + Day 2 Recap', venueTime: '2019-02-17T11:30'},
-                {name: '📋 Year 4 Roadmap', venueTime: '2019-02-17T12:00'},
-                {name: '⚔ All Star Game', venueTime: '2019-02-17T12:40'},
-                {name: '🎉 New Operation Reveal (incl. orchestra)', venueTime: '2019-02-17T13:30'},
-                {name: '⚔ Grand Final', venueTime: '2019-02-17T14:30'},
-                {name: '🏆 Trophy Ceremony', venueTime: '2019-02-17T19:30'},
-                {name: '🎬 Final Wrap-Up', venueTime: '2019-02-17T20:00'}
+    /*
+    HOW THIS WORKS
 
-            ]
-        },
-        "Y4S1": {
-            eventName: 'Deployment of Operation Burnt Horizon',
-            venueTime: '2019-03-06T09:00',
-            timeZone: 'Canada/Eastern',
-            schedule: [
-                {name: 'Maintenance on PC (for 1 hour)', venueTime: '2019-03-06T09:00'},
-                {name: 'Maintenance on PS4 (for 1 hour)', venueTime: '2019-03-06T10:00'},
-                {name: 'Maintenance on XB1 (for 1 hour)', venueTime: '2019-03-06T11:00'}
-            ]
-        },
-        "BonusRenown_20190413": {
-            eventName: '50% Bonus Renown Event (PC)',
-            venueTime: '2019-04-13T08:00',
-            timeZone: 'Canada/Eastern',
-            schedule: [
-                {name: 'Event ends', venueTime: '2019-04-14T12:00'}
-            ]
-        },
-        "BonusRenown_20190418": {
-            eventName: '50% Bonus Renown Event (All platforms)',
-            venueTime: '2019-04-18T09:00',
-            timeZone: 'Canada/Eastern',
-            schedule: [
-                {name: 'Event ends', venueTime: '2019-04-19T09:00'}
-            ]
-        },
-        "PLS9Finals_Day1": {
-            eventName: 'Rainbow Six Pro League Season IX Finals: Day 1',
-            venueTime: '2019-05-18T12:30',
-            timeZone: 'Europe/Rome',
-            schedule: [
-                {name: 'Opening Ceremony', venueTime: '2019-05-18T12:30'},
-                {name: '🏅 Fnatic vs. Nora Rengo', venueTime: '2019-05-18T13:00'},
-                {name: '🏅 Team Empire vs. Darkzero', venueTime: '2019-05-18T16:00'},
-                {name: '🏅 Lestream Esport vs. Faze Clan', venueTime: '2019-05-18T19:00'},
-                {name: '🏅 Immortals vs. Evil Geniuses', venueTime: '2019-05-18T22:00'}
-            ]
-        },
-        "PLS9Finals_Day2": {
-            eventName: 'Rainbow Six Pro League Season IX Finals: Day 2',
-            venueTime: '2019-05-19T13:30',
-            timeZone: 'Europe/Rome',
-            schedule: [
-                {name: 'Opening Ceremony', venueTime: '2019-05-19T13:30'},
-                {name: '🏅 Semi-Final #1', venueTime: '2019-05-19T14:20'},
-                {name: '🏅 Semi-Final #2', venueTime: '2019-05-19T17:30'},
-                {name: '🎉 Operation Phantom Sight: Reveal Segment', venueTime: '2019-05-19T20:30'},
-                {name: '🏆 Grand Final', venueTime: '2019-05-19T21:20'}
-            ]
-        },
-        "E32019": {
-            eventName: 'E3 2019',
-            venueTime: null,
-            description: 'The schedule for E3 2019! \nInformation based on Twitch\'s E3 event page at https://www.twitch.tv/events/szEF78o9Re6QXyvAa8AAnw.',
-            timeZone: 'America/Los_Angeles',
-            schedule: [
-                {name: 'EA', venueTime: '2019-06-08T09:15'},
-                {separator: true},
-                {name: 'Xbox', venueTime: '2019-06-09T13:00'},
-                {name: 'Bethesda', venueTime: '2019-06-09T17:30'},
-                {name: 'Devolver Digital', venueTime: '2019-06-09T19:00'},
-                {separator: true},
-                {name: 'PC Gaming Show', venueTime: '2019-06-10T10:00'},
-                {name: 'Ubisoft', venueTime: '2019-06-10T13:00'},
-                {name: 'Square Enix', venueTime: '2019-06-10T18:00'},
-                {separator: true},
-                {name: 'Nintendo Direct', venueTime: '2019-06-11T09:00'},
-            ]
-        },
-        "SixMajorRaleigh/1": {
-            eventName: 'Raleigh Major 2019: Day 1',
-            venueTime: '2019-08-16T09:00',
-            description: '<a href="#SixMajorRaleigh/1">Day 1</a> / <a href="#SixMajorRaleigh/2">Day 2</a> / <a href="#SixMajorRaleigh/3">Day 3</a>. Times are estimates based on match length and may change. Watch on <a href="https://www.twitch.tv/rainbow6">Twitch</a>!',
-            timeZone: 'America/New_York',
-            schedule: [
-                {name: 'Opening Ceremony', venueTime: '2019-08-16T09:00'},
-                {name: '🏅 Quarter Final 1', venueTime: '2019-08-16T10:00'},
-                {name: '🏅 Quarter Final 2', venueTime: '2019-08-16T13:00'},
-                {name: '🏅 Quarter Final 3', venueTime: '2019-08-16T16:00'},
-                {name: '🏅 Quarter Final 4', venueTime: '2019-08-16T19:00'},
-                {name: 'Daily Wrap-up', venueTime: '2019-08-16T22:20'}
-            ]
-        },
-        "SixMajorRaleigh/2": {
-            eventName: 'Raleigh Major 2019: Day 2',
-            venueTime: '2019-08-17T10:30',
-            description: '<a href="#SixMajorRaleigh/1">Day 1</a> / <a href="#SixMajorRaleigh/2">Day 2</a> / <a href="#SixMajorRaleigh/3">Day 3</a>. Times are estimates based on match length and may change. Watch on <a href="https://www.twitch.tv/rainbow6">Twitch</a>!',
-            timeZone: 'America/New_York',
-            schedule: [
-                {name: 'Pre-show', venueTime: '2019-08-17T10:30'},
-                {name: '🏅 Showmatch', venueTime: '2019-08-17T11:00'},
-                {name: '🏅 Semi Final 1', venueTime: '2019-08-17T12:30'},
-                {name: '🏅 Semi Final 2', venueTime: '2019-08-17T15:30'},
-                {name: 'Daily Wrap-up', venueTime: '2019-08-17T22:20'}
-            ]
-        },
-        "SixMajorRaleigh/3": {
-            eventName: 'Raleigh Major 2019: Day 3',
-            venueTime: '2019-08-18T10:30',
-            description: '<a href="#SixMajorRaleigh/1">Day 1</a> / <a href="#SixMajorRaleigh/2">Day 2</a> / <a href="#SixMajorRaleigh/3">Day 3</a>. Times are estimates based on match length and may change. Watch on <a href="https://www.twitch.tv/rainbow6">Twitch</a>!',
-            timeZone: 'America/New_York',
-            schedule: [
-                {name: 'Opening Ceremony', venueTime: '2019-08-18T10:30'},
-                {name: '🏅 Showmatch', venueTime: '2019-08-18T11:00'},
-                {name: '🎉 Operation Ember Rise Reveal and Esports Panel', venueTime: '2019-08-18T13:30'},
-                {name: '🏅 Grand Final  ', venueTime: '2019-08-18T14:30'},
-                {name: 'Closing Ceremony', venueTime: '2019-08-18T19:30'}
-            ]
-        },
-        "BonusRenown_20191018": {
-            eventName: "25% Bonus Renown event for PC",
-            venueTime: "2019-10-18T20:00",
-            timeZone:"Canada/Eastern",
-            "schedule":[
-                {name:"Event starts",venueTime:"2019-10-18T20:00"},
-                {name:"Event ends",venueTime:"2019-10-19T20:00"}
-            ]
-        },
-        "PLS10Finals/1": {
-            eventName: "Rainbow Six Pro League Season X Finals: Day 1",
-            venueTime: "2019-11-09T10:00",
-            description: 'View schedule for: <strong><a href="#PLS10Finals/1">Day 1</a> / <a href="#PLS10Finals/2">Day 2</a></strong>. Useful links: <a href="https://rainbow6.ubisoft.com/siege/en-us/news/detail.aspx?c=tcm:154-357572-16&ct=tcm:154-76770-32">Event Guide</a>, <a href="https://www.twitch.tv/rainbow6">Rainbow6 on Twitch</a>, <a href="https://twitter.com/R6esports/status/1192741863171641344">schedule update source</a>',
-            timeZone:"Japan",
-            "schedule":[
-                {name:"Opening Ceremony",venueTime:"2019-11-09T10:00"},
-                {name:"🏆 Quarter Final 1 - DarkZero Esports vs. FaZe Clan", venueTime:"2019-11-09T10:15"},
-                {name:"🏆 Quarter Final 2 - Natus Vincere vs. Wildcard Gaming", venueTime:"2019-11-09T13:10"},
-                {name:"🏆 Quarter Final 3 - Giants Gaming vs. Aerowolf", venueTime:"2019-11-09T16:00"},
-                {name:"🏆 Quarter Final 4 - Ninjas in Pyjamas vs. Team Reciprocity", venueTime:"2019-11-09T19:00"},
-            ]
-        },
-        "PLS10Finals/2": {
-            eventName: "Rainbow Six Pro League Season X Finals: Day 2",
-            venueTime: "2019-11-10T09:50",
-            description: 'View schedule for: <strong><a href="#PLS10Finals/1">Day 1</a> / <a href="#PLS10Finals/2">Day 2</a></strong>. Useful links: <a href="https://rainbow6.ubisoft.com/siege/en-us/news/detail.aspx?c=tcm:154-357572-16&ct=tcm:154-76770-32">Event Guide</a>, <a href="https://www.twitch.tv/rainbow6">Rainbow6 on Twitch</a>, <a href="https://twitter.com/R6esports/status/1192741863171641344">schedule update source</a>',
-            timeZone:"Japan",
-            "schedule":[
-                {name:"Opening Ceremony",venueTime:"2019-11-10T09:50"},
-                {name:"🏆 Semi Final 1",venueTime:"2019-11-10T10:00"},
-                {name:"🏆 Semi Final 2",venueTime:"2019-11-10T13:00"},
-                {name:"🎬 Operation Reveal",venueTime:"2019-11-10T16:00"},
-                {name:"🏆 Grand Final",venueTime:"2019-11-10T16:40"},
-            ]
-        },
-        "Y5S1": {
-            eventName: 'Deployment of Operation Void Edge',
-            venueTime: '2020-03-10T09:00',
-            description: 'View the changes here: <a href="https://rainbow6.com/voidedge" target="_blank">Patch notes</a> / <a href="http://rainbow6.com/patchnotes/voidedge_add" target="_blank">Addendum</a>',
-            timeZone: 'Canada/Eastern',
-            schedule: [
-                {name: 'Maintenance on PC', venueTime: '2020-03-10T09:00'},
-                {name: 'Maintenance on XB1', venueTime: '2020-03-10T10:00'},
-                {name: 'Maintenance on PS4', venueTime: '2020-03-10T11:00'}
-            ]
-        },
-        "BonusRenown_20200320": {
-            eventName: "PC and PS4: 3-day 50% Bonus Renown event",
-            description: "As compensation following the degradation on PC/PS4 this past weekend, Ubisoft will be activating a 3-day 50% renown boost event for PC and PS4.",
-            venueTime: "2020-03-20T09:00",
-            timeZone:"Canada/Eastern",
-            "schedule":[
-                {name:"Event starts",venueTime:"2020-03-20T09:00"},
-                {name:"Event ends",venueTime:"2020-03-23T09:00"}
-            ]
-        },
-    };
+    [On page load or hash change]
+        V
+    readHash()  read data from hash or retrieve from server
+        V
+    update()    assembles and appends DOM elements for showing information
+        |
+        |--getDetectedTimezoneDetails()
+        |--getMainEventDetails()
+        |--getEventSchedule()
+        V
+    [Done]
+    */
 
     function createElement(tag, className, contents){
         var e = document.createElement(tag);
@@ -303,62 +95,54 @@ parent:
         return e;
     }
 
-    function showError(message){
+    function showError(message, details){
         document.getElementById("converter").innerHTML = "";
-        let errorMessage = createElement("p", "error-message font-header", message);
+        let errorMessage = createElement("p", "error-message", message);
         document.getElementById("converter").appendChild(errorMessage);
+        if(details){
+            let errorDetails = createElement("p", "error-details", message);
+            document.getElementById("converter").appendChild(errorDetails);
+        }
     }
 
-    function listEvents(){
-        document.getElementById("converter").appendChild(createElement("hr"));
+    function showEmptyState(){
+        document.getElementById("converter").innerHTML = "";
 
-        document.getElementById("converter").appendChild(createElement("p", "helper-message", "Are you looking for any of these?"));
-        let eventList = createElement("p", "helper-message event-list", "");
-        document.getElementById("converter").appendChild(eventList);
-        
-        for (const event of Object.keys(presetEvents).reverse()) {
-            console.log(presetEvents[event]);
-            let e = createElement("a", "event-list-item", presetEvents[event].eventName);
-            e.href = `#${event}`
-            eventList.append(e);
-            eventList.append(document.createTextNode(" / "));
-        }
-        console.log(presetEvents);
+        let container = createElement("div", "empty-state");
+        document.getElementById("converter").appendChild(container);
+
+        let newMessage = createElement("p", "empty-state-message", "There's nothing to see here...");
+        container.appendChild(newMessage);
+
+        let p = createElement("p", "empty-state-new");
+        container.appendChild(p);
+        let a = createElement("a", null, "Create new event");
+        a.href = "/event-time/editor";
+        p.appendChild(a);
+        document.getElementById("converter").appendChild(errorMessage);
     }
 
     function update(data, userTimezone){
         document.getElementById("converter").innerHTML = "";
 
-        var current = getDetectedTimezoneDetails(userTimezone, data.verified);
-        var event = getMainEventDetails(data.eventName, data.venueTime, data.timeZone, userTimezone, data.description);
+        var event = getMainEventDetails(data.eventName, data.venueTime, data.timeZone, userTimezone, data.description, data.verified);
         var schedule = getEventSchedule(data.schedule, data.venueTime, data.timeZone, userTimezone);
 
-        document.getElementById("converter").appendChild(current);
         document.getElementById("converter").appendChild(event);
         if(schedule != null){
             document.getElementById("converter").appendChild(schedule);
         }
     }
 
-    function getDetectedTimezoneDetails(userTimezone, isVerified){
-        let container = createElement("div");;
-
-        var currentMoment = moment().tz(userTimezone);
-        
-        if(!isVerified){
-            let intro = createElement("p", "intro", `Please note: this is a public time zone converter tool. Event details are provided by the creator of the link.`);
-            container.appendChild(intro);
-        }
-        
-        let timezone = createElement("p", "current-timezone", `Using your detected time zone ${userTimezone} (${currentMoment.format(tzFormat)})`);
-        
-        container.appendChild(timezone);
-        return container;
-    }
-
-    function getMainEventDetails(eventName, venueTime, timeZone, userTimezone, description){
+    function getMainEventDetails(eventName, venueTime, timeZone, userTimezone, description, isVerified){
         var container = createElement("div", "main-event");
         container.appendChild(createElement("h2", "event-name", `📅 ${eventName}`));
+        
+        
+        if(!isVerified){
+            let intro = createElement("p", "important", `This is a public time zone converter tool. Event details are provided by the creator of the link.`);
+            container.appendChild(intro);
+        }
 
         if(description){
             var desc = createElement("p", "event-description")
@@ -370,7 +154,7 @@ parent:
             var eventMoment = moment.tz(venueTime, timeZone);
             var eventMomentLocal = moment(eventMoment).tz(userTimezone);
 
-            container.appendChild(createElement("div", "event-time font-header", eventMomentLocal.format(timeFormat)));
+            container.appendChild(createElement("div", "event-time", eventMomentLocal.format(timeFormat)));
 
             var eventDate = createElement("div", "event-date", eventMomentLocal.format(dateFormat));
             eventDate.appendChild(createElement("span", "event-timezone", ` (${eventMomentLocal.format(tzFormat)})`));
@@ -398,8 +182,7 @@ parent:
         }
 
         var scheduleElement = createElement("div", "schedule");
-        var header = createElement("h3", null, "Schedule");
-        scheduleElement.appendChild(header);
+        scheduleElement.appendChild(createElement("h3", null, "Schedule"));
         var container = createElement("div", "schedule-table");
         scheduleElement.appendChild(container);
 
@@ -415,14 +198,14 @@ parent:
 
             var scheduleTime = createElement("div", "schedule-item-time");
 
-            var scheduleTimeLocal = createElement("div", "schedule-item-time-local font-header", scheduleMomentLocal.format(timeFormat));
+            var scheduleTimeLocal = createElement("div", "schedule-item-time-local", scheduleMomentLocal.format(timeFormat));
             if(venueTime)
             {
-                scheduleTimeLocal.appendChild(createElement("span", "schedule-item-time-local-detail font-base", 
+                scheduleTimeLocal.appendChild(createElement("span", "schedule-item-time-local-detail", 
                     `${scheduleMomentLocal.calendar(eventMomentLocal, calendarDayFormat)}`));
             }
             else{
-                scheduleTimeLocal.insertBefore(createElement("span", "schedule-item-time-local-detail font-base", 
+                scheduleTimeLocal.insertBefore(createElement("span", "schedule-item-time-local-detail", 
                     `${scheduleMomentLocal.format(shortDateFormat)} at `), scheduleTimeLocal.childNodes[0]);
             }
             scheduleTime.appendChild(scheduleTimeLocal);
@@ -431,7 +214,7 @@ parent:
             if(venueTime)
             {
                 scheduleTimeVenue = createElement("div", "schedule-item-time-venue", `Venue time: ${scheduleMoment.format(timeFormat)}`);
-                scheduleTimeVenue.appendChild(createElement("span", "schedule-item-time-venue-detail font-base", 
+                scheduleTimeVenue.appendChild(createElement("span", "schedule-item-time-venue-detail", 
                     `${scheduleMoment.calendar(eventMoment, calendarDayFormat)}`));
             }
             else
@@ -462,11 +245,28 @@ parent:
 
         console.log(hash);
 
-        //Pre-set events
+        /*//Pre-set events
         if(hash != null && hash in presetEvents){
             data = presetEvents[hash];
             // Indicates data is read from page rather than a provided pipe-separated hash
             data.verified = true;
+        }*/
+
+        //Short links
+        if(hash != null && hash.indexOf("|") == -1)
+        {
+            const urlBase = "https://raw.githubusercontent.com/DangerAspect/event-time-data/master/data";
+            showError("Requesting from server...");
+            fetch(`${urlBase}/${hash.replace("/", "-")}.json`).then(response => response.json())
+            .then(data => {
+                    var userTimezone = moment.tz.guess();
+                    data.verified = true;
+                    update(data, userTimezone);
+                })
+            .catch(data => {
+                console.log(data);
+                showError("Error encountered retrieving data.");
+            });
         }
 
         // JSON + EncodeURIComponent 
@@ -509,8 +309,7 @@ parent:
                 showError("Unable to load: the event data in the URL is invalid.");
         }
         else{
-                showError("There is no information to show.");
-                listEvents();
+                showEmptyState();
         }
 
         // Guess user time zone
@@ -524,18 +323,6 @@ parent:
     window.addEventListener("hashchange", readHash, false);
 </script>
 <style>
-    h1{
-        margin-bottom: 1rem;
-    }
-    h2{
-        margin-bottom: 1rem;
-    }
-    .intro, .current-timezone{
-        margin: 0 auto;
-    }
-    .current-timezone{
-        font-weight: bold;
-    }
     .error-message{
         font-size: 2rem;
         line-height: 1.0;
@@ -543,25 +330,36 @@ parent:
         opacity: 0.5;
         text-align: center;
     }
-
-    /*Event details*/
-    .event-description{
-        margin-top: 0;
-        margin-bottom: 1rem;
+    .empty-state{
+        padding: 8rem 0;
+        text-align: center;
     }
+    .empty-state-message{
+        font-size: 1.5rem;
+        opacity: 0.5;
+    }
+
+    .about{
+        margin-top: 8rem;
+    }
+
+    .event-description{
+        margin-bottom: 2rem;
+    }
+    .main-event{
+        margin-bottom: 2rem;
+    }
+
     .event-time{
         font-size: 3rem;
-        line-height: 1.0;
-        margin-bottom: 0.5rem;
-    }
-    .event-timezone{
-        opacity: 0.5;
+        text-transform: uppercase;
     }
     .event-date{
         font-size: 1.5rem;
         line-height: 1.0;
         margin-bottom: 1rem;
     }
+
     .event-localisation, .event-venue{
         opacity: 0.75;
     }
@@ -586,10 +384,12 @@ parent:
         white-space: pre; 
     }
     .schedule-item-time-local{
-        font-size: 2rem;
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-transform: uppercase;
     }
     .schedule-item-time-venue{
-        opacity: 0.25;
+        opacity: 0.5;
     }
     .schedule-item-time-local span, .schedule-item-time-venue span{
         font-size: 1rem;
