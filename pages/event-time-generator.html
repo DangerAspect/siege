@@ -54,15 +54,16 @@ parent:
 
     <hr>
 
-    <h3>3/ Generate</h3>
+    <h2>3/ Generate</h2>
 
-    <input type="button" value="Generate link" onclick="showLink(false)">
+    <input type="button" value="Generate link" onclick="showLink(false)" oncontextmenu="unhideJSON()">
     <input type="button" value="Generate link and preview in new tab" onclick="showLink(true)">
+    <input type="button" value="Generate JSON" onclick="showJSON()" id="generateJson" class="hidden">
 </form>
 
 <p id="status-message">Click "generate link" to continue.</p>
 
-<div id="generated-link"></div>
+<pre id="generated-link"></pre>
 
 <!-- Scripts and styling go below this line! -->
 <style>
@@ -93,6 +94,14 @@ parent:
         width: 25%;
     }
     .hidden{
+        display: none;
+    }
+    #generated-link{
+        border: 1px dotted currentColor;
+        padding: 0.5rem;
+        font-family: monospace;
+    }
+    input[type=button].hidden{
         display: none;
     }
 </style>
@@ -182,7 +191,7 @@ parent:
         let link = document.getElementById("generated-link");
         link.innerText = "";
     }
-    function generateLink(){
+    function generateLink(isJSON=false){
         let data = {
             /*eventName: 'Rainbow Six Pro League Season 8 Finals',
             venueTime: '2018-11-17T10:45:00',
@@ -272,20 +281,23 @@ parent:
 
         //Return url
 
-        // JSON + EncodeURIComponent 
-        //return encodeURIComponent(JSON.stringify(data)); 
-
-        //Pipe-separated values
-
-        let valuesString = "";
-        valuesString = `${stripCharacter(data['eventName'])}|${stripCharacter(data['venueTime'])}|${stripCharacter(data['timeZone'])}`;
-        if(data['schedule'] != null){
-            data['schedule'].forEach(element => {
-                valuesString += `|${stripCharacter(element.name)}|${stripCharacter(element.venueTime)}`;
-            });
+        // JSON
+        if(isJSON)
+        {
+            return JSON.stringify(data, null, 4); 
         }
-        //return encodeURIComponent(valuesString);
-        return valuesString.replace(" ", "%20");
+        //Pipe-separated values
+        else{
+            let valuesString = "";
+            valuesString = `${stripCharacter(data['eventName'])}|${stripCharacter(data['venueTime'])}|${stripCharacter(data['timeZone'])}`;
+            if(data['schedule'] != null){
+                data['schedule'].forEach(element => {
+                    valuesString += `|${stripCharacter(element.name)}|${stripCharacter(element.venueTime)}`;
+                });
+            }
+            //return encodeURIComponent(valuesString);
+            return valuesString.replace(" ", "%20");
+        }
     }
 
     function showLink(preview){
@@ -297,6 +309,18 @@ parent:
             if(preview){
                 window.open(url, "preview");
             }
+        }
+    }
+
+    function unhideJSON(){
+        document.getElementById("generateJson").classList.remove("hidden");
+    }
+
+    function showJSON(){
+        let result = generateLink(true);
+        if(result != false){
+            document.getElementById("status-message").innerHTML = `The generated event JSON is below. <br><a href="https://github.com/DangerAspect/event-time-data/new/master/data" target="_blank">Click here</a> to create a new file in the event-time-date repository.`;
+            document.getElementById("generated-link").innerText = result;
         }
     }
 
