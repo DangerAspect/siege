@@ -119,7 +119,6 @@ tag: tool
         let a = createElement("a", null, "Create new event");
         a.href = "/event-time/editor";
         p.appendChild(a);
-        document.getElementById("converter").appendChild(errorMessage);
     }
 
     function update(data, userTimezone){
@@ -236,6 +235,7 @@ tag: tool
     }
 
     function readHash(){
+        console.log("Reading hash...")
         var data = null;
 
         let hash = null;
