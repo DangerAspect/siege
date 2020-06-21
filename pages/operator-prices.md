@@ -3,7 +3,7 @@ layout: page
 title:  Unlock Prices for Post-Launch Operators
 permalink: /operatorprices
 description: "An up-to-date graphic showing DLC operator unlock prices, effective Year 4 Season 1."
-date: 2020-03-11
+date: 2020-06-21
 tag: article
 ---
 
