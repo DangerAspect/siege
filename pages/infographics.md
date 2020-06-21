@@ -44,7 +44,7 @@ These were originally created for the Rainbow Six Discord, although the Rainbow 
 
 ## Unlock Prices for Post-Launch Operators
 
-[![Unlock Prices for Post-Launch Operators](/assets/images/operator-prices/OperatorPrices-Y5S1.jpg)](/assets/images/operator-prices/OperatorPrices-Y5S1.jpg)
+[![Unlock Prices for Post-Launch Operators](/assets/images/operator-prices/OperatorPrices-Y5S2.jpg)](/assets/images/operator-prices/OperatorPrices-Y5S2.jpg)
 
 You can find [more information, context, and details on this page](/operatorprices).
 
