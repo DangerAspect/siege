@@ -21,11 +21,12 @@ These were originally created for the Rainbow Six Discord, although the Rainbow 
 
 ## Quick Match Map Pool
 
-[![Quick Match Map Pool](/assets/images/infographics/MapRotation-QuickMatch-Y5S2.0.jpg)](/assets/images/infographics/MapRotation-QuickMatch-Y5S2.0.jpg)
+[![Quick Match Map Pool](/assets/images/infographics/MapRotation-QuickMatch-Y5S3.jpg)](/assets/images/infographics/MapRotation-QuickMatch-Y5S3.jpg)
 
 ### Changelog and credits
 
-* [**Y5S2 / Revision 1**](/assets/images/infographics/MapRotation-QuickMatch-Y5S2.0.jpg): Updated for Y5S2.
+* [**Y5S3 / Revision 1**](/assets/images/infographics/MapRotation-QuickMatch-Y5S3.jpg): Updated for Y5S3.
+* [Y5S2 / Revision 1](/assets/images/infographics/MapRotation-QuickMatch-Y5S2.0.jpg): Updated for Y5S2.
 * [Y5S1 / Revision 1](/assets/images/infographics/MapRotation-QuickMatch-Y5S1.0.jpg): Updated for Y5S1. 
 * [Y4S4.3 / Revision 1](/assets/images/infographics/MapRotation-QuickMatch-Y4S4.3.jpg): Updated for Y4S4.3 patch. Updated explanation text, fixed map pool link, added patch date.
 * [Y4S4 / Revision 1](/assets/images/infographics/MapRotation-Casual-Y4S4.0.jpg): Updated for Y4S4 rotation.
@@ -34,11 +35,12 @@ These were originally created for the Rainbow Six Discord, although the Rainbow 
 
 ## Ranked and Unranked Map Pool
 
-[![Ranked and Unranked Map Pool](/assets/images/infographics/MapRotation-Ranked-Y5S2.jpg)](/assets/images/infographics/MapRotation-Ranked-Y5S2.jpg)
+[![Ranked and Unranked Map Pool](/assets/images/infographics/MapRotation-Ranked-Y5S3.jpg)](/assets/images/infographics/MapRotation-Ranked-Y5S3.jpg)
 
 ### Changelog and credits
 
-* [**Y5S2 / Revision 1**](/assets/images/infographics/MapRotation-Ranked-Y5S2.jpg): Updated for Y5S2.
+* [**Y5S3 / Revision 1**](/assets/images/infographics/MapRotation-Ranked-Y5S3.jpg): Updated for Y5S3.
+* [Y5S2 / Revision 1](/assets/images/infographics/MapRotation-Ranked-Y5S2.jpg): Updated for Y5S2.
 * [Y5S1 / Revision 1](/assets/images/infographics/MapRotation-Ranked-Y5S1.jpg): Updated for Y5S1.
 * [Y4S4 / Revision 1](/assets/images/infographics/MapRotation-Ranked-Y4S4.jpg): Improved map image layout to make them easier to recognise.
 * [Y4S3 / Revision 2](/assets/images/infographics/MapRotation-Ranked-Y4S3-2.jpg): Improved map image layout to make them easier to recognise.
