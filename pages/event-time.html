@@ -21,34 +21,39 @@ tag: tool
     This tool allows you to share an event's time and schedule, in the user's own time zone.
 </p>
 
-<h3>How it works</h3>
-
-<p>
-    Event information is encoded in URL hash (the part after the #).
-</p>
-<p>
-    There are two forms the hash may be in: 
-</p>
-<ul>
-    <li>
-        <strong>Pipe-separated values</strong>: (e.g. <a href="#This%20is an example event!|2020-01-01T12:00|Asia/Singapore">this link</a>)<br>
-        All information are stored in the URL hash in the form of pipe-separated values.<br>
-        You can use the <a href="/event-time/editor">the editor</a> to create your own links.
-    </li>
-    <li>
-        <strong>Aliases</strong>: (e.g. <a href="#Y5S1">#Y5S1</a>)<br>
-        Event details for these are retrieved from the <a href="https://github.com/DangerAspect/event-time-data">event-time-date repository</a>.<br>
-        Only collaborators with write access to that repository are able to use this. For more info, refer to the repository readme.
-
-    </li>
-</ul>
-
 <h3>Daylight Saving Time</h3>
 <p>
     If provided with the correct event time zone, this tool should automatically take into 
     account Daylight Saving Times. This tool uses <a href="https://momentjs.com/timezone/">Moment Timezone</a> 
     containing data from around 2015 to 2025. 
 </p>
+
+<details>
+    <summary>
+        <h3 style="display:inline;">How it works</h3>
+    </summary>
+
+    <p>
+        Event information is encoded in URL hash (the part after the #).
+    </p>
+    <p>
+        There are two forms the hash may be in: 
+    </p>
+    <ul>
+        <li>
+            <strong>Pipe-separated values</strong>: (e.g. <a href="#This%20is an example event!|2020-01-01T12:00|Asia/Singapore">this link</a>)<br>
+            All information are stored in the URL hash in the form of pipe-separated values.<br>
+            You can use the <a href="/event-time/editor">the editor</a> to create your own links.
+        </li>
+        <li>
+            <strong>Aliases</strong>: (e.g. <a href="#Y5S1">#Y5S1</a>)<br>
+            Event details for these are retrieved from the <a href="https://github.com/DangerAspect/event-time-data">event-time-date repository</a>.<br>
+            Only collaborators with write access to that repository are able to use this. For more info, refer to the repository readme.
+
+        </li>
+    </ul>
+
+</details>
 
 <!-- Scripts and styling go below this line! -->
 <script>
