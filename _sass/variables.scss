@@ -60,11 +60,11 @@ $font-title: "Oswald", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Ox
 $color-text: #ddd;
 $color-heading: #fff;
 $color-accent: #fff;
-$color-bg: #0a1306;
+$color-bg: #140D18;
 
 // (Links)
-$color-link: hsl(100, 75%, 75%);
+$color-link: scale-color($color-bg, $lightness: 85%, $saturation: 50%);
 
-$background-opacity-start: 0.25;
+$background-opacity-start: 0.5;
 $background-opacity-home-start: 0.25;
 $background-opacity-home-end: 0.75;
