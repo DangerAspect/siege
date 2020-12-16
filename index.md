@@ -6,10 +6,6 @@ welcome: "Welcome to DangerAspect/Siege"
 description: "A fan site featuring various guides and tools for Rainbow Six: Siege."
 
 links:
-  - title: "**Current map pool** infographics"
-    link: "/infographics"
-    description: "Current Ranked and Quick Match map pools"
-
   - title: "**Post-launch operator** unlock prices"
     link: "/operatorprices"
     description: "Up-to-date DLC operator unlock prices"
