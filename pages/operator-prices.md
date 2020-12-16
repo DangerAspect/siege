@@ -3,13 +3,13 @@ layout: page
 title:  Unlock Prices for Post-Launch Operators
 permalink: /operatorprices
 description: "An up-to-date graphic showing DLC operator unlock prices."
-date: 2020-06-21
+date: 2020-12-16
 tag: article
 ---
 
 This graphic shows the unlock prices for DLC operators, following the [Operator Lifecycle](#operator-lifecycle) which will be introduced starting Year 4 Season 1.
 
-[![Graphics on DLC Operator Unlock Prices](/assets/images/operator-prices/OperatorPrices-Y5S3.jpg)](/assets/images/operator-prices/OperatorPrices-Y5S3.jpg)
+[![Graphics on DLC Operator Unlock Prices](/assets/images/operator-prices/OperatorPrices-Y5S4.jpg)](/assets/images/operator-prices/OperatorPrices-Y5S4.jpg)
 
 ### Operator Lifecycle
 
@@ -25,7 +25,8 @@ The Operator Lifecycle is a way to make post-launch operators more accessible to
 
 ### Changelog and credits
 
-* **[Y5S3 / Revision 1](/assets/images/operator-prices/OperatorPrices-Y5S3.jpg)**: Updated graphic for Y5S3. 
+* **[Y5S4 / Revision 1](/assets/images/operator-prices/OperatorPrices-Y5S4.jpg)**: Updated graphic for Y5S4. 
+* [Y5S3 / Revision 1](/assets/images/operator-prices/OperatorPrices-Y5S3.jpg): Updated graphic for Y5S3. 
 * [Y5S2 / Revision 1](/assets/images/operator-prices/OperatorPrices-Y5S2.jpg): Updated graphic for Y5S2. Operators now consistently ordered attackers first.
 * [Y5S1 / Revision 1](/assets/images/operator-prices/OperatorPrices-Y5S1.jpg): Updated graphic for Y5S1. Updated layout for Year 5. 
 * [Y4S4 / Revision 1](/assets/images/operator-prices/OperatorPricesY4S4.jpg): Updated graphic for Y4S4. 
