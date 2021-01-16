@@ -3,7 +3,7 @@
 
 DangerAspect Siege is a community-run reference site for Rainbow Six: Siege. 
 
-This site was created by [Joey](https://twitter.com/joeyfjj) to provide an easily
+This site was created by [Joey](https://twitter.com/DangerAspect) to provide an easily
 accessible site for various guides and tools for Siege. 
 
 ## Contact
