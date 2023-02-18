@@ -1,3 +1,7 @@
+⚠️ **No longer maintained.** Site contents has been migrated to the main site at https://dangeraspect.xyz/siege instead, and redirects set up.
+
+-----
+
 # DangerAspect/Siege
 [siege.dangeraspect.xyz](https://siege.dangeraspect.xyz)
 
